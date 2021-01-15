@@ -30,7 +30,7 @@ const DataDisplay = (props) => {
     <Wrapper><Heading>4.94 (161 reviews)</Heading></Wrapper>
     <Wrapper><Cell>Cleanliness</Cell><Cell>**********5.0</Cell><Cell>Accuracy</Cell><Cell>**********4.5</Cell></Wrapper>
     <Wrapper><Cell>Communication</Cell><Cell>**********4.8</Cell><Cell>Location</Cell><Cell>**********4.9</Cell></Wrapper>
-    <Wrapper><Cell>Check-in</Cell><Cell>**********4.6</Cell><Cell>Value</Cell><Cell>**********5</Cell></Wrapper>
+    <Wrapper><Cell>Check-in</Cell><Cell>**********4.6</Cell><Cell>Value</Cell><Cell>**********5.0</Cell></Wrapper>
   </div>)
 }
 
