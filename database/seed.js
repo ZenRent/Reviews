@@ -14,7 +14,7 @@ console.log('randomDate', randomDate(startDate, endDate));
 
 const fakeAddressesArr = [];
 
-for (let j = 0; j < 2; j += 1) {
+for (let j = 0; j < 100; j += 1) {
   const address = faker.address.streetAddress();
   fakeAddressesArr.push(address);
 }
@@ -22,7 +22,7 @@ for (let j = 0; j < 2; j += 1) {
 
 const fakeReviewArr = [];
 
-for (let i = 0; i < 5; i += 1) {
+for (let i = 0; i < 40; i += 1) {
   const reviewObj = [{
     Image: faker.image.image(),
     Username: faker.internet.userName(),

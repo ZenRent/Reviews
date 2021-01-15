@@ -14,6 +14,7 @@ flex-flow: row nowrap;
 const MainContent = styled.div`
 background-color: blue;
 flex: 1;
+border-style: dashed ;
 `;
 
 const Sidebar = styled.div`

@@ -1,36 +1,36 @@
 import React from 'react';
-import styled from "styled-components"
-
-const Heading = styled.h1`
-
-color: black;
-text-align: center;
-`;
+import styled from "styled-components";
 
 const Wrapper = styled.div`
 display: flex;
 flex-flow: row nowrap;
 margin-left: 10%;
 margin-right: 10%;
-
 `;
 
-const Col1 = styled.div`
-background-color: pink;
+const Heading = styled.h1`
 flex: 1;
+border: 1px dotted;
+text-align: left;
+padding: 5px;
+font-weight: bold;
+font-size:16px;
 `;
 
-const Col2 = styled.div`
-background-color: yellow;
+const Cell = styled.div`
 flex: 1;
+border: 1px dotted;
+text-align: left;
+padding: 5px;
+font-size: 13px;
 `;
 
 const DataDisplay = (props) => {
   return (<div>
-    <Wrapper><Col1>Overall</Col1></Wrapper>
-    <Wrapper><Col1>Cleanliness</Col1><Col2>Accuracy</Col2></Wrapper>
-    <Wrapper><Col1>Communication</Col1><Col2>Location</Col2></Wrapper>
-    <Wrapper><Col1>Check-in</Col1><Col2>Value</Col2></Wrapper>
+    <Wrapper><Heading>4.94 (161 reviews)</Heading></Wrapper>
+    <Wrapper><Cell>Cleanliness</Cell><Cell>**********5.0</Cell><Cell>Accuracy</Cell><Cell>**********4.5</Cell></Wrapper>
+    <Wrapper><Cell>Communication</Cell><Cell>**********4.8</Cell><Cell>Location</Cell><Cell>**********4.9</Cell></Wrapper>
+    <Wrapper><Cell>Check-in</Cell><Cell>**********4.6</Cell><Cell>Value</Cell><Cell>**********5</Cell></Wrapper>
   </div>)
 }
 
