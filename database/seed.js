@@ -1,40 +1,42 @@
-const { Review, db } = require('./index.js');
-var faker = require('faker');
-let DateGenerator = require('random-date-generator');
+const faker = require('faker');
+const DateGenerator = require('random-date-generator');
+const { Review } = require('./index.js');
 
 function randomDate(start, end) {
-  var date = new Date(+start + Math.random() * (end - start));
+  const date = new Date(+start + Math.random() * (end - start));
   return date;
 }
-let startDate = new Date(2019, 2, 2);
-let endDate = new Date(2021, 1, 10);
-console.log(DateGenerator.getRandomDateInRange(startDate, endDate))
+const startDate = new Date(2019, 2, 2);
+const endDate = new Date(2021, 1, 10);
+console.log(DateGenerator.getRandomDateInRange(startDate, endDate));
 
+console.log('randomDate', randomDate(startDate, endDate));
 
-var fakeAddressesArr = []
+const fakeAddressesArr = [];
 
-for (var j = 0; j < 2; j++) {
-  let address = faker.address.streetAddress();
-  fakeAddressesArr.push(address)
+for (let j = 0; j < 2; j += 1) {
+  const address = faker.address.streetAddress();
+  fakeAddressesArr.push(address);
 }
 // console.log("fakeAddressesArr", fakeAddressesArr)
 
-fakeReviewArr = []
+const fakeReviewArr = [];
 
-for (var i = 0; i < 4; i++) {
-  var reviewObj = [{
+for (let i = 0; i < 4; i += 1) {
+  const reviewObj = [{
     Image: faker.image.image(),
     Username: faker.internet.userName(),
     DateTime: DateGenerator.getRandomDateInRange(startDate, endDate),
     Body: faker.lorem.paragraph(),
   }];
-  fakeReviewArr.push(reviewObj)
+
+  fakeReviewArr.push(reviewObj);
 }
 // console.log("fakeReviewArr", fakeReviewArr)
 
 fakeAddressesArr.forEach((currentAddress) => {
   fakeReviewArr.forEach((currentReview) => {
-    var dataObj = {
+    const dataObj = {
       Listing: currentAddress,
       Reviews: currentReview,
       Rating: {
@@ -43,24 +45,18 @@ fakeAddressesArr.forEach((currentAddress) => {
         Communication: Math.floor(Math.random() * 5) + 1,
         Location: Math.floor(Math.random() * 5) + 1,
         Checkin: Math.floor(Math.random() * 5) + 1,
-        Value: Math.floor(Math.random() * 5) + 1
+        Value: Math.floor(Math.random() * 5) + 1,
       }
-    }
-    Review.create(dataObj)
-    console.log("FinalObject!", dataObj)
-  })
-})
-
-
-
-
+    };
+    Review.create(dataObj);
+    console.log('FinalObject!', dataObj);
+  });
+});
 
 // const exampleData = [
 //   { Listing: "test", Reviews: fakeReviewArr }]
 
 // console.log("exampleData", exampleData)
-
-
 
 // const insertData = function () {
 
@@ -69,8 +65,6 @@ fakeAddressesArr.forEach((currentAddress) => {
 // };
 
 // insertData();
-
-
 
 // var ratingsArr = []
 // for (var i = 0; i < 4; i++) {
@@ -85,11 +79,3 @@ fakeAddressesArr.forEach((currentAddress) => {
 //   ratingsArr.push(ratingObj)
 //   // fakeReviewArr.push(addys)
 // }
-
-
-
-
-
-
-
-
