@@ -1,40 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
-import Tutorial from './AddReview.jsx';
+import DataDisplay from './DataDisplay.jsx';
 
-function App() {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
-  const [reviews, setReviews] = useState(0);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      reviews: [],
+    };
 
-  useEffect(() => {
-    console.log('Use effect is similar to component did mount, but must pass in [] as second param');
-    getReviews();
-  }, []);
+    this.getReviews = this.getReviews.bind(this);
+  }
 
-  const getReviews = () => {
+  componentDidMount() {
+    this.getReviews();
+  }
+
+  getReviews() {
     console.log('hit getReviews');
     axios.get('/reviews')
       .then((response) => {
         console.log('response.data', response.data);
-        setReviews(response.data)
+        this.setState({ reviews: response.data });
       })
       .catch((error) => {
         console.log(error);
       });
-  };
+  }
 
-  return (
-    <div>
-      <button type="button" onClick={() => setCount(count + 1)}>
-        3 Clicks for Tutorial
-        {count}
-      </button>
-      <div>
-        {count > 2 ? <Tutorial /> : null}
-      </div>
-    </div>
-  );
+  render() {
+    return (
+      <DataDisplay />
+    );
+  }
 }
 
 export default App;

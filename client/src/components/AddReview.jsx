@@ -1,85 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
+import styled from "styled-components"
 
-function Tutorial() {
-  // Declare a new state variable, which we'll call "count"
-  const [Todos, setTodos] = useState([{
-    text: 'Learn Hooks',
-    isCompleted: false,
-  },
-  {
-    text: 'Do Journal',
-    isCompleted: false,
-  },
-  {
-    text: 'Walk Dog',
-    isCompleted: false,
-  }
-  ]);
+const Heading = styled.h1`
+color: red;
+text-align: center;
+`;
 
-  function Todo({ todo, index, completeTodo, deleteTodo }) {
-    return (
-      <div style={{ textDecoration: todo.isCompleted ? 'line-through' : '' }}>
-        {todo.text}
-        <div>
-          <button onClick={() => completeTodo(index)}>Complete</button>
-          <button onClick={() => deleteTodo(index)}>Delete</button>
-        </div>
-      </div>
-    );
-  }
+const Wrapper = styled.div`
+display: flex;
+flex-flow: row nowrap;
+`;
 
-  function TodoForm({ addTodo }) {
-    const [value, setValue] = useState('');
+const MainContent = styled.div`
+background-color: blue;
+flex: 1;
+`;
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      if (!value) return;
-      addTodo(value);
-      setValue('');
-    };
+const Sidebar = styled.div`
+background-color: red;
+flex: 0 auto;
+width: 200px;
+`;
 
-    return (
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={value} placeholder="Add Todo" onChange={event => setValue(event.target.value)} />
-        <input type="submit" value="Submit" />
-      </form>
-    )
-  }
-
-  const addTodo = (text) => {
-    const newTodos = [...Todos, { text }];
-    setTodos(newTodos);
-  };
-
-  const completeTodo = index => {
-    const newTodos = [...Todos];
-    newTodos[index].isCompleted = true;
-    setTodos(newTodos);
-  };
-
-  const deleteTodo = index => {
-
-    const newTodos = [...Todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
-  }
-
-  return (
-    <div>
-      <div>
-        {Todos.map((todo, index) => (
-          <Todo
-            Key={index}
-            index={index}
-            todo={todo}
-            completeTodo={completeTodo}
-            deleteTodo={deleteTodo}
-          />
-        ))}
-        <TodoForm addTodo={addTodo} />
-      </div>
-    </div>
-  );
+const AddReview = (props) => {
+  return (<div><Heading>Heading</Heading>
+    <Wrapper><MainContent>Main Content</MainContent><Sidebar>Sidebar</Sidebar></Wrapper></div>)
 }
 
-export default Tutorial;
+export default AddReview;
