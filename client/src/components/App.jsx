@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import styled from "styled-components";
+import styled from 'styled-components';
 import DataDisplay from './DataDisplay.jsx';
 import ReviewList from './ReviewList.jsx';
 
@@ -13,12 +13,11 @@ background-color: white;
 border-radius: 7px;
 `;
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: "",
+      reviews: [],
     };
 
     this.getReviews = this.getReviews.bind(this);
@@ -32,10 +31,10 @@ class App extends React.Component {
     console.log('hit getReviews');
     axios.get('/reviews')
       .then((response) => {
-        //console.log('response.data', response.data);
+        console.log('response.data', response.data);
         const targetReviews = [];
         response.data.forEach((current) => {
-          if (current.Listing === "5857 Pollich Roads") {
+          if (current.Listing === '69664 Daija Wall') {
             targetReviews.push(current);
           }
         });
@@ -50,7 +49,7 @@ class App extends React.Component {
     return (
       <div>
         <DataDisplay />
-        <ReviewList />
+        <ReviewList reviews={this.state.reviews} />
         <ModalBtn>Show all Reviews</ModalBtn>
       </div>
     );

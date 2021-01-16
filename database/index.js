@@ -13,14 +13,14 @@ const schema = mongoose.Schema({
     Body: String,
     Score: Number,
   }],
-  Rating: [{
+  Rating: {
     Cleanliness: Number,
     Accuracy: Number,
     Communication: Number,
     Location: Number,
     Checkin: Number,
     Value: Number,
-  }],
+  },
 });
 
 const Review = mongoose.model('Review', schema);

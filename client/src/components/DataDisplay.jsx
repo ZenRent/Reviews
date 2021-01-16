@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
 display: flex;
@@ -31,8 +31,7 @@ const DataDisplay = (props) => {
     <Wrapper><Cell>Cleanliness</Cell><Cell>**********5.0</Cell><Cell>Accuracy</Cell><Cell>**********4.5</Cell></Wrapper>
     <Wrapper><Cell>Communication</Cell><Cell>**********4.8</Cell><Cell>Location</Cell><Cell>**********4.9</Cell></Wrapper>
     <Wrapper><Cell>Check-in</Cell><Cell>**********4.6</Cell><Cell>Value</Cell><Cell>**********5.0</Cell></Wrapper>
-  </div>)
-}
+  </div>);
+};
 
 export default DataDisplay;
-

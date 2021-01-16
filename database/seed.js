@@ -46,7 +46,7 @@ fakeAddressesArr.forEach((currentAddress) => {
         Location: Math.floor(Math.random() * 5) + 1,
         Checkin: Math.floor(Math.random() * 5) + 1,
         Value: Math.floor(Math.random() * 5) + 1,
-      }
+      },
     };
     Review.create(dataObj);
     console.log('FinalObject!', dataObj);
