@@ -12,17 +12,22 @@ border: 1px solid;
 padding: 8px;
 background-color: white;
 border-radius: 7px;
+cursor:pointer;
+&:hover {
+background-color: #BEBEBE;
+  }
 `;
 
-export class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reviews: [],
-      view: '',
+      view: 'Modal',
     };
 
     this.getReviews = this.getReviews.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
@@ -47,13 +52,17 @@ export class App extends React.Component {
       });
   }
 
+  closeModal() {
+    this.setState({ view: "View" });
+  }
+
   render() {
     return (
       <div>
         <DataDisplay />
         <ReviewList reviews={this.state.reviews} />
         <ModalBtn onClick={() => this.setState({ view: "Modal" })}>Show all Reviews</ModalBtn>
-        {this.state.view === "Modal" ? <Modal reviews={this.state.reviews} view={this.state.view} /> : null}
+        {this.state.view === "Modal" ? <Modal reviews={this.state.reviews} closeModal={this.closeModal} view={this.state.view} /> : null}
       </div>
     );
   }

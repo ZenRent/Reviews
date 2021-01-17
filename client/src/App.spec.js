@@ -32,4 +32,3 @@ describe('Advanced, Get Snapshot', () => {
     expect(tree).toMatchSnapshot();
   });
 });
-

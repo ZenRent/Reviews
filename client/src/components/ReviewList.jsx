@@ -4,9 +4,28 @@ import styled from 'styled-components';
 
 const ReviewLayout = styled.ul`
 columns: 2 auto;
+margin-left: 160px;
+max-width: 1150px;
+
+`;
+
+const ModalReviewLayout = styled.ul`
+
 `;
 
 const ReviewList = (props) => {
+  if (props.view === "Modal") {
+    return (<ModalReviewLayout>{
+      props.reviews.map((review, i) => {
+        console.log("RIGHTUNIVERSE", review.Reviews[0].Body)
+        if (review.Reviews[0].Body.includes(props.TargetString)) {
+          return (<ReviewEntry
+            review={review} />)
+          {/* } */ }
+        }
+      })
+    }</ModalReviewLayout>)
+  }
   console.log("props.reviews", props.reviews)
   return (
     <ReviewLayout>{
