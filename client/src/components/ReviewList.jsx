@@ -10,14 +10,29 @@ const ReviewList = (props) => {
   console.log("props.reviews", props.reviews)
   return (
     <ReviewLayout>{
-      props.reviews.map((review) => {
-        return (<ReviewEntry
-          review={review} />)
+      props.reviews.map((review, index) => {
+        if (index <= 5) {
+          return (<ReviewEntry
+            review={review} />)
+        }
       })
     }
     </ReviewLayout>
   )
+  if (this.props.view === "Modal") {
+    return (
+      props.reviews.map((review, index) => {
+
+        return (<ReviewEntry
+          review={review} />)
+
+      })
+    )
+
+  }
 }
+
+
 
 
 export default ReviewList;

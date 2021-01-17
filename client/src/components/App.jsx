@@ -3,7 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import DataDisplay from './DataDisplay.jsx';
 import ReviewList from './ReviewList.jsx';
-//Test23
+import Modal from './Modal.jsx';
 
 const ModalBtn = styled.button`
 display: flex;
@@ -19,6 +19,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       reviews: [],
+      view: '',
     };
 
     this.getReviews = this.getReviews.bind(this);
@@ -35,7 +36,7 @@ class App extends React.Component {
         console.log('response.data', response.data);
         const targetReviews = [];
         response.data.forEach((current) => {
-          if (current.Listing === '69664 Daija Wall') {
+          if (current.Listing === '057 Barrows Wall') {
             targetReviews.push(current);
           }
         });
@@ -51,7 +52,8 @@ class App extends React.Component {
       <div>
         <DataDisplay />
         <ReviewList reviews={this.state.reviews} />
-        <ModalBtn>Show all Reviews</ModalBtn>
+        <ModalBtn onClick={() => this.setState({ view: "Modal" })}>Show all Reviews</ModalBtn>
+        {this.state.view === "Modal" ? <Modal reviews={this.state.reviews} view={this.state.view} /> : null}
       </div>
     );
   }
