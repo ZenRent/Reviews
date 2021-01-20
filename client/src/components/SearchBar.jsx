@@ -2,6 +2,9 @@ import React from 'react';
 import ReviewList from './ReviewList.jsx';
 import styled from 'styled-components';
 
+const FormContainer = styled.form`
+display: inline;
+`;
 
 const SearchForm = styled.input`
 background-color: white;
@@ -10,7 +13,7 @@ height: 30px;
 radius: 30px;
 border-radius: 30px;
 margin-left: 45px;
-
+margin-top: 12px;
   }
 `;
 
@@ -35,12 +38,12 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    return (<form onSubmit={this.handleSubmit}>
+    return (<FormContainer onSubmit={this.handleSubmit}>
       <label>
         <SearchForm type="text" name="search" placeholder="Search reviews" value={this.state.value} onChange={this.handleChange} />
       </label>
       {/* <input type="submit" value="Submit" /> */}
-    </form>)
+    </FormContainer>)
   }
 }
 

@@ -23,7 +23,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       reviews: [],
-      view: '',
+      view: 'Modal',
     };
 
     this.getReviews = this.getReviews.bind(this);
@@ -61,7 +61,7 @@ class App extends React.Component {
       <div >
         <DataDisplay />
         <ReviewList reviews={this.state.reviews} />
-        <ModalBtn onClick={() => this.setState({ view: "Modal" })}>!!Show all Reviews</ModalBtn>
+        <ModalBtn onClick={() => this.setState({ view: "Modal" })}>Show all Reviews</ModalBtn>
         {this.state.view === "Modal" ? <Modal reviews={this.state.reviews} closeModal={this.closeModal} view={this.state.view} /> : null}
       </div>
     );

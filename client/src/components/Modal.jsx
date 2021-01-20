@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ReviewList from './ReviewList.jsx';
 import DataDisplay from './DataDisplay.jsx';
 import SearchBar from './SearchBar.jsx';
+import DisplayHeader from './DisplayHeader.jsx'
 
 const ModalObj = styled.div`
 display: flex;
@@ -28,6 +29,13 @@ position: absolute;
   transform: translate(-50%, -50%);
 `;
 
+const Row = styled.div`
+ display: flex;
+ flex-direction: row;
+ align-items: flex-start;
+ padding: 10px;
+`;
+
 const XCloseBtn = styled.button`
 
 padding: 2;
@@ -44,6 +52,8 @@ background: #BEBEBE;
 `;
 
 const StickyHeader = styled.div`
+  display: flex;
+  flex-direction: row;
 
     ${'' /* top: 0;
     left: 0;
@@ -54,8 +64,6 @@ const StickyHeader = styled.div`
     background-color:red;
     border: 2px Solid; */}
 `;
-
-
 
 class Modal extends React.Component {
   constructor(props) {
@@ -75,12 +83,15 @@ class Modal extends React.Component {
   render() {
     return (
       <ModalObj>
-        <StickyHeader />
         <XCloseBtn onClick={() => this.props.closeModal()}>X</XCloseBtn>
-        <SearchBar filterSearch={this.filterSearch} />
-        <StickyHeader />
-        <DataDisplay />
-        <ReviewList TargetString={this.state.TargetString} reviews={this.props.reviews} view={this.props.view} />
+        <Row>
+          <DisplayHeader />
+          <SearchBar filterSearch={this.filterSearch} />
+        </Row>
+        <Row>
+          <DataDisplay view={this.props.view} />
+          <ReviewList TargetString={this.state.TargetString} reviews={this.props.reviews} view={this.props.view} />
+        </Row>
       </ModalObj>)
   }
 }
