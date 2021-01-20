@@ -10,7 +10,7 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 justify-content: flex-start;
-width: 50%;
+width: 45%;
 height: 90%;
 border: 1px solid;
 padding: 8px;
@@ -85,7 +85,7 @@ class Modal extends React.Component {
       <ModalObj>
         <XCloseBtn onClick={() => this.props.closeModal()}>X</XCloseBtn>
         <Row>
-          <DisplayHeader />
+          <DisplayHeader view={this.props.view} />
           <SearchBar filterSearch={this.filterSearch} />
         </Row>
         <Row>

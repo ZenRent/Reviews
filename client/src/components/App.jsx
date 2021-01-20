@@ -14,7 +14,7 @@ background-color: white;
 border-radius: 7px;
 cursor:pointer;
 &:hover {
-background-color: #BEBEBE;
+background-color: #f7f7f7;
   }
 `;
 
@@ -23,7 +23,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       reviews: [],
-      view: 'Modal',
+      view: '',
     };
 
     this.getReviews = this.getReviews.bind(this);

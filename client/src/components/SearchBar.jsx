@@ -7,7 +7,7 @@ display: inline;
 `;
 
 const SearchForm = styled.input`
-background-color: white;
+background-color: #f7f7f7;
 width: 520px;
 height: 30px;
 radius: 30px;

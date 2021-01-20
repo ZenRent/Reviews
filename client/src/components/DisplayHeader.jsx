@@ -9,7 +9,8 @@ text-align: left;
 padding: 5px;
 font-weight: bold;
 font-size:16px;
-margin-left: 20px;
+margin-left: 5px;
+
 `;
 
 const ReviewStar = styled.img`

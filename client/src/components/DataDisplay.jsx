@@ -14,6 +14,24 @@ margin-right: 28%;
 color: #222222;
 `;
 
+const ModalWrapper = styled.div`
+display: flex;
+justify-content: flex-end;
+flex-flow: row nowrap;
+margin-left: 58%;
+
+color: #222222;
+`;
+
+const ModalCellName = styled.div`
+flex: 1;
+margin-left: 1px;
+${'' /* border: 1px dotted; */}
+text-align: right;
+padding: 5px;
+font-size: 13px;
+`;
+
 const Cell = styled.div`
 flex: 1;
 ${'' /* border: 1px dotted; */}
@@ -31,9 +49,11 @@ margin-right: 7px;
 const DataDisplay = (props) => {
   if (props.view === 'Modal') {
     return (<Container>
-      <Wrapper><DisplayHeader /></Wrapper>
-      <Wrapper><Cell>Cleanliness</Cell><Cell><RatingBar src='RatingBar.png' />5.0</Cell></Wrapper>
-      <Wrapper><Cell>Accuracy</Cell><Cell><RatingBar src='RatingBar.png' />4.5</Cell></Wrapper>
+      <ModalWrapper><ModalCellName>Cleanliness</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>5.0</Cell></ModalWrapper>
+      <ModalWrapper><ModalCellName>Accuracy</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>4.5</Cell></ModalWrapper>
+      <ModalWrapper><ModalCellName>Communication</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>4.8</Cell></ModalWrapper>
+      <ModalWrapper><ModalCellName>Location</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>4.9</Cell></ModalWrapper>
+      <ModalWrapper><ModalCellName>Check-in</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>4.9</Cell></ModalWrapper>
     </Container>)
   } else {
     return (<Container>
