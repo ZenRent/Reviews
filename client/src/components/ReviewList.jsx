@@ -3,9 +3,9 @@ import ReviewEntry from './ReviewEntry.jsx';
 import styled from 'styled-components';
 
 const ReviewLayout = styled.ul`
-columns: 2 auto;
-margin-left: 160px;
-max-width: 1150px;
+columns: 2 auto ;
+margin-left: 375px;
+max-width: 800px;
 
 `;
 

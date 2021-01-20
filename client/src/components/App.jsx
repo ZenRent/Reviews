@@ -7,7 +7,7 @@ import Modal from './Modal.jsx';
 
 const ModalBtn = styled.button`
 display: flex;
-margin-left: 10%;
+margin-left: 28%;
 border: 1px solid;
 padding: 8px;
 background-color: white;
@@ -23,7 +23,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       reviews: [],
-      view: 'Modal',
+      view: '',
     };
 
     this.getReviews = this.getReviews.bind(this);
@@ -58,10 +58,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div >
         <DataDisplay />
         <ReviewList reviews={this.state.reviews} />
-        <ModalBtn onClick={() => this.setState({ view: "Modal" })}>Show all Reviews</ModalBtn>
+        <ModalBtn onClick={() => this.setState({ view: "Modal" })}>!!Show all Reviews</ModalBtn>
         {this.state.view === "Modal" ? <Modal reviews={this.state.reviews} closeModal={this.closeModal} view={this.state.view} /> : null}
       </div>
     );
