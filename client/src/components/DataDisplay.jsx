@@ -35,6 +35,7 @@ font-size: 13px;
 const Cell = styled.div`
 flex: 1;
 ${'' /* border: 1px dotted; */}
+width: auto;
 text-align: left;
 padding: 5px;
 font-size: 13px;
@@ -48,28 +49,174 @@ margin-right: 7px;
 
 const DataDisplay = (props) => {
   const { Accuracy, Checkin, Cleanliness, Communication, Location, Value } = props.RatingData;
-  const LocationBar = Math.ceil(Location * 20);
-  console.log('Location x2', LocationBar);
+  const AccuracyBar1 = Math.ceil(Accuracy * 20);
+  console.log('AccuracyBar1', AccuracyBar1);
+
+  const Progress = styled.div`
+position: relative;
+  height: 3px;
+  display: block;
+  width: 132px;
+  background-color: #D3D3D3;
+  border-radius: 2px;
+  background-clip: padding-box;
+  margin: 0.5rem 0 .5rem 0;
+  overflow: hidden;
+`;
+
+  const LocationBar = (Math.ceil(Location * 20));
+  const AccuracyBar = (Math.ceil(Accuracy * 20));
+  const CheckinBar = (Math.ceil(Checkin * 20));
+  const CleanlinessBar = (Math.ceil(Cleanliness * 20));
+  const CommunicationBar = (Math.ceil(Communication * 20));
+  const ValueBar = (Math.ceil(Value * 20));
+
+  const Determinate = styled.div`
+position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: black;
+
+    width: ${props => {
+      if (props.Category === "Accuracy") {
+        return (`${AccuracyBar}%`)
+      }
+      if (props.Category === "Location") {
+        return (`${LocationBar}%`)
+      }
+      if (props.Category === "Checkin") {
+        return (`${CheckinBar}%`)
+      }
+      if (props.Category === "Cleanliness") {
+        return (`${CleanlinessBar}%`)
+      }
+      if (props.Category === "Communication") {
+        return (`${CommunicationBar}%`)
+      }
+      if (props.Category === "Value") {
+        return (`${ValueBar}%`)
+      }
+
+    }
+    };
+transition: width .3s linear;
+`;
+
+
+
   if (props.view === 'Modal') {
     return (<Container>
-      <ModalWrapper><ModalCellName>Cleanliness</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>{Cleanliness}</Cell></ModalWrapper>
-      <ModalWrapper><ModalCellName>Accuracy</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>{Accuracy}</Cell></ModalWrapper>
-      <ModalWrapper><ModalCellName>Communication</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>{Communication}</Cell></ModalWrapper>
-      <ModalWrapper><ModalCellName>Location</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>{Location}</Cell></ModalWrapper>
-      <ModalWrapper><ModalCellName>Checkin</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>
-        {Checkin}</Cell></ModalWrapper>
-      <ModalWrapper><ModalCellName>Value</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>
-        {Value}</Cell></ModalWrapper>
+      <ModalWrapper>
+        <ModalCellName>Cleanliness</ModalCellName>
+        <Cell>
+          <Progress>
+            <Determinate Category="Cleanliness" ></Determinate>
+          </Progress>
+        </Cell>
+        <Cell>{Cleanliness}</Cell>
+      </ModalWrapper>
+
+      <ModalWrapper>
+        <ModalCellName>Accuracy</ModalCellName>
+        <Cell>
+          <Progress>
+            <Determinate Category="Accuracy" ></Determinate>
+          </Progress>
+        </Cell>
+        <Cell>{Accuracy}</Cell>
+      </ModalWrapper>
+
+      <ModalWrapper>
+        <ModalCellName>Communication</ModalCellName>
+        <Cell>
+          <Progress>
+            <Determinate Category="Communication" ></Determinate>
+          </Progress>
+        </Cell>
+        <Cell>{Communication}</Cell>
+      </ModalWrapper>
+
+      <ModalWrapper>
+        <ModalCellName>Location</ModalCellName>
+        <Cell>
+          <Progress>
+            <Determinate Category="Location" ></Determinate>
+          </Progress>
+        </Cell>
+        <Cell>{Location}</Cell>
+      </ModalWrapper>
+
+      <ModalWrapper><ModalCellName>Checkin</ModalCellName>
+        <Cell>
+          <Progress>
+            <Determinate Category="Checkin" ></Determinate>
+          </Progress>
+        </Cell>
+        <Cell>{Checkin}</Cell>
+      </ModalWrapper>
+
+      <ModalWrapper>
+        <ModalCellName>Value</ModalCellName>
+        <Cell>
+          <Progress>
+            <Determinate Category="Value" ></Determinate>
+          </Progress>
+        </Cell>
+        <Cell>{Value}</Cell>
+      </ModalWrapper>
     </Container>);
   } else {
     return (<Container>
       <Wrapper><DisplayHeader TotalScore={props.TotalScore} NumOfReviews={props.NumOfReviews} /></Wrapper>
 
-      <Wrapper><Cell>Cleanliness</Cell><Cell><RatingBar src='RatingBar.png' />{Cleanliness}</Cell>
-        <Cell>Accuracy</Cell><Cell><RatingBar src='RatingBar.png' />{Accuracy}</Cell></Wrapper>
+      <Wrapper>
+        <Cell>Cleanliness</Cell>
+        <Cell><Progress>
+          <Determinate Category="Cleanliness" ></Determinate>
+        </Progress></Cell>
+        <Cell>{Cleanliness}</Cell>
+        <Cell>Accuracy</Cell>
+        <Cell>
+          <Progress>
+            <Determinate Category="Cleanliness" ></Determinate>
+          </Progress>
+        </Cell>
+        <Cell>{Accuracy}</Cell>
+      </Wrapper>
 
-      <Wrapper><Cell>Communication</Cell><Cell><RatingBar src='RatingBar.png' />{Communication}</Cell><Cell>Location</Cell><Cell><RatingBar src='RatingBar.png' />{Location}</Cell></Wrapper>
-      <Wrapper><Cell>Checkin</Cell><Cell><RatingBar src='RatingBar.png' />{Checkin}</Cell><Cell>Value</Cell><Cell><RatingBar src='RatingBar.png' />{Value}</Cell></Wrapper>
+      <Wrapper>
+        <Cell>Communication</Cell>
+        <Cell>
+          <Progress>
+            <Determinate Category="Communication" ></Determinate>
+          </Progress>
+        </Cell>
+        <Cell>{Communication}</Cell>
+        <Cell>Location</Cell>
+        <Cell>
+          <Progress>
+            <Determinate Category="Location" ></Determinate>
+          </Progress>
+        </Cell>
+        <Cell>{Location}</Cell>
+      </Wrapper>
+
+      <Wrapper>
+        <Cell>Checkin</Cell>
+        <Cell>
+          <Progress>
+            <Determinate Category="Checkin" ></Determinate>
+          </Progress>
+        </Cell>
+        <Cell>{Checkin}</Cell>
+        <Cell>Value</Cell>
+        <Cell>
+          <Progress>
+            <Determinate Category="Value" ></Determinate>
+          </Progress>
+        </Cell>
+        <Cell>{Value}</Cell>
+      </Wrapper>
     </Container>);
   }
 };

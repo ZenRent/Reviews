@@ -17,7 +17,6 @@ const ReviewList = (props) => {
   if (props.view === 'Modal') {
     return (<ModalReviewLayout>{
       props.reviews.map((review) => {
-        console.log('RIGHTUNIVERSE', review.Reviews[0].Body);
         if (review.Reviews[0].Body.includes(props.TargetString)) {
           return (<ReviewEntry
             review={review} />);
@@ -37,11 +36,6 @@ const ReviewList = (props) => {
     }
     </ReviewLayout>
   );
-}
-
-
-
+};
 
 export default ReviewList;
-
-
