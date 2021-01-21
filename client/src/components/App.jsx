@@ -23,7 +23,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       reviews: [],
-      view: '',
+      view: 'Modal',
       RatingData: '',
       TotalScore: '',
       NumOfReviews: '',

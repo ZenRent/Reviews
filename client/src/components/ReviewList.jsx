@@ -9,8 +9,8 @@ max-width: 800px;
 `;
 
 const ModalReviewLayout = styled.ul`
-margin-left: 1px;
-margin-top:1px;
+margin-left: -90px;
+margin-top:-35px;
 `;
 
 const ReviewList = (props) => {

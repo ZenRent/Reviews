@@ -102,8 +102,6 @@ position: absolute;
 transition: width .3s linear;
 `;
 
-
-
   if (props.view === 'Modal') {
     return (<Container>
       <ModalWrapper>

@@ -8,11 +8,11 @@ display: inline;
 
 const SearchForm = styled.input`
 background-color: #f7f7f7;
-width: 520px;
+width: 380px;
 height: 30px;
 radius: 30px;
 border-radius: 30px;
-margin-left: 45px;
+margin-left: 100px;
 margin-top: 12px;
   }
 `;

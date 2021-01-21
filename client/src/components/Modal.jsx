@@ -10,7 +10,7 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 justify-content: flex-start;
-width: 45%;
+width: 43%;
 height: 90%;
 border: 1px solid;
 padding: 8px;
@@ -38,7 +38,8 @@ const Row = styled.div`
 
 const XCloseBtn = styled.button`
 
-padding: 2;
+padding-left:5px;
+padding-top: 5px;
 border: none;
 background: none;
 cursor:pointer;
