@@ -1,12 +1,11 @@
 import React from 'react';
-import ReviewEntry from './ReviewEntry.jsx';
 import styled from 'styled-components';
+import ReviewEntry from './ReviewEntry.jsx';
 
 const ReviewLayout = styled.ul`
 columns: 2 auto ;
 margin-left: 375px;
 max-width: 800px;
-
 `;
 
 const ModalReviewLayout = styled.ul`
@@ -15,41 +14,29 @@ margin-top:1px;
 `;
 
 const ReviewList = (props) => {
-  if (props.view === "Modal") {
+  if (props.view === 'Modal') {
     return (<ModalReviewLayout>{
-      props.reviews.map((review, i) => {
-        console.log("RIGHTUNIVERSE", review.Reviews[0].Body)
+      props.reviews.map((review) => {
+        console.log('RIGHTUNIVERSE', review.Reviews[0].Body);
         if (review.Reviews[0].Body.includes(props.TargetString)) {
           return (<ReviewEntry
-            review={review} />)
-          {/* } */ }
+            review={review} />);
         }
       })
-    }</ModalReviewLayout>)
+    }</ModalReviewLayout>);
   }
-  console.log("props.reviews", props.reviews)
+  console.log('props.reviews', props.reviews);
   return (
     <ReviewLayout>{
       props.reviews.map((review, index) => {
         if (index <= 5) {
           return (<ReviewEntry
-            review={review} />)
+            review={review} />);
         }
       })
     }
     </ReviewLayout>
-  )
-  if (this.props.view === "Modal") {
-    return (
-      props.reviews.map((review, index) => {
-
-        return (<ReviewEntry
-          review={review} />)
-
-      })
-    )
-
-  }
+  );
 }
 
 

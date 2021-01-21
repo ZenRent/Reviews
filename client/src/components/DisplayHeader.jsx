@@ -19,8 +19,10 @@ height: auto;
 margin-right: 7px;
 `;
 
-const DisplayHeader = (props) => {
-  return (<Heading><ReviewStar src='red-star.png' />4.94 (161 reviews)</Heading>)
-};
+const DisplayHeader = (props) => (
+  <Heading>
+    <ReviewStar src="red-star.png" />
+    {props.TotalScore} ({props.NumOfReviews} reviews)</Heading>
+);
 
 export default DisplayHeader;

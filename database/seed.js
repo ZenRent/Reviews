@@ -8,18 +8,13 @@ function randomDate(start, end) {
   return date;
 }
 
-
 const startDate = new Date(2019, 2, 2);
 const endDate = new Date(2021, 1, 10);
 
 const randomTime = (startDate, endDate) => {
-  const unfilteredTime = DateGenerator.getRandomDateInRange(startDate, endDate)
+  const unfilteredTime = DateGenerator.getRandomDateInRange(startDate, endDate);
   return moment(unfilteredTime).format('MMMM YYYY');
 };
-
-console.log("randomTime func", randomTime(startDate, endDate))
-
-
 
 console.log(DateGenerator.getRandomDateInRange(startDate, endDate));
 

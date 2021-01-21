@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ReviewList from './ReviewList.jsx';
 import DataDisplay from './DataDisplay.jsx';
 import SearchBar from './SearchBar.jsx';
-import DisplayHeader from './DisplayHeader.jsx'
+import DisplayHeader from './DisplayHeader.jsx';
 
 const ModalObj = styled.div`
 display: flex;
@@ -70,29 +70,27 @@ class Modal extends React.Component {
     super(props);
     this.state = {
       TargetString: '',
-    }
+    };
     this.filterSearch = this.filterSearch.bind(this);
   }
 
   filterSearch(SearchInput) {
-    console.log("SearchInput", SearchInput);
     this.setState({ TargetString: SearchInput });
   }
-
 
   render() {
     return (
       <ModalObj>
         <XCloseBtn onClick={() => this.props.closeModal()}>X</XCloseBtn>
         <Row>
-          <DisplayHeader view={this.props.view} />
+          <DisplayHeader view={this.props.view} TotalScore={this.props.TotalScore} NumOfReviews={this.props.NumOfReviews} />
           <SearchBar filterSearch={this.filterSearch} />
         </Row>
         <Row>
-          <DataDisplay view={this.props.view} />
+          <DataDisplay view={this.props.view} RatingData={this.props.RatingData} />
           <ReviewList TargetString={this.state.TargetString} reviews={this.props.reviews} view={this.props.view} />
         </Row>
-      </ModalObj>)
+      </ModalObj>);
   }
 }
 

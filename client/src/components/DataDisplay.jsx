@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import DisplayHeader from './DisplayHeader.jsx'
+import DisplayHeader from './DisplayHeader.jsx';
 
 const Container = styled.div`
 margin-left: 1%;
@@ -47,23 +47,29 @@ margin-right: 7px;
 `;
 
 const DataDisplay = (props) => {
+  const { Accuracy, Checkin, Cleanliness, Communication, Location, Value } = props.RatingData;
+  const LocationBar = Math.ceil(Location * 20);
+  console.log('Location x2', LocationBar);
   if (props.view === 'Modal') {
     return (<Container>
-      <ModalWrapper><ModalCellName>Cleanliness</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>5.0</Cell></ModalWrapper>
-      <ModalWrapper><ModalCellName>Accuracy</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>4.5</Cell></ModalWrapper>
-      <ModalWrapper><ModalCellName>Communication</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>4.8</Cell></ModalWrapper>
-      <ModalWrapper><ModalCellName>Location</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>4.9</Cell></ModalWrapper>
-      <ModalWrapper><ModalCellName>Check-in</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>4.9</Cell></ModalWrapper>
-    </Container>)
+      <ModalWrapper><ModalCellName>Cleanliness</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>{Cleanliness}</Cell></ModalWrapper>
+      <ModalWrapper><ModalCellName>Accuracy</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>{Accuracy}</Cell></ModalWrapper>
+      <ModalWrapper><ModalCellName>Communication</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>{Communication}</Cell></ModalWrapper>
+      <ModalWrapper><ModalCellName>Location</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>{Location}</Cell></ModalWrapper>
+      <ModalWrapper><ModalCellName>Checkin</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>
+        {Checkin}</Cell></ModalWrapper>
+      <ModalWrapper><ModalCellName>Value</ModalCellName><Cell><RatingBar src='RatingBar.png' /></Cell><Cell>
+        {Value}</Cell></ModalWrapper>
+    </Container>);
   } else {
     return (<Container>
-      <Wrapper><DisplayHeader /></Wrapper>
+      <Wrapper><DisplayHeader TotalScore={props.TotalScore} NumOfReviews={props.NumOfReviews} /></Wrapper>
 
-      <Wrapper><Cell>Cleanliness</Cell><Cell><RatingBar src='RatingBar.png' />5.0</Cell>
-        <Cell>Accuracy</Cell><Cell><RatingBar src='RatingBar.png' />4.5</Cell></Wrapper>
+      <Wrapper><Cell>Cleanliness</Cell><Cell><RatingBar src='RatingBar.png' />{Cleanliness}</Cell>
+        <Cell>Accuracy</Cell><Cell><RatingBar src='RatingBar.png' />{Accuracy}</Cell></Wrapper>
 
-      <Wrapper><Cell>Communication</Cell><Cell><RatingBar src='RatingBar.png' />4.8</Cell><Cell>Location</Cell><Cell><RatingBar src='RatingBar.png' />4.9</Cell></Wrapper>
-      <Wrapper><Cell>Check-in</Cell><Cell><RatingBar src='RatingBar.png' />4.6</Cell><Cell>Value</Cell><Cell><RatingBar src='RatingBar.png' />5.0</Cell></Wrapper>
+      <Wrapper><Cell>Communication</Cell><Cell><RatingBar src='RatingBar.png' />{Communication}</Cell><Cell>Location</Cell><Cell><RatingBar src='RatingBar.png' />{Location}</Cell></Wrapper>
+      <Wrapper><Cell>Checkin</Cell><Cell><RatingBar src='RatingBar.png' />{Checkin}</Cell><Cell>Value</Cell><Cell><RatingBar src='RatingBar.png' />{Value}</Cell></Wrapper>
     </Container>);
   }
 };
