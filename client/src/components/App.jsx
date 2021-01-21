@@ -114,7 +114,7 @@ class App extends React.Component {
       <div >
         <DataDisplay RatingData={this.state.RatingData} TotalScore={this.state.TotalScore} NumOfReviews={this.state.NumOfReviews} />
         <ReviewList reviews={this.state.reviews} />
-        <ModalBtn onClick={() => this.setState({ view: 'Modal' })}>Show all Reviews</ModalBtn>
+        <ModalBtn onClick={() => this.setState({ view: 'Modal' })}>Show all {this.state.NumOfReviews} Reviews</ModalBtn>
         {this.state.view === 'Modal' ? <Modal reviews={this.state.reviews} RatingData={this.state.RatingData}
           TotalScore={this.state.TotalScore} NumOfReviews={this.state.NumOfReviews} closeModal={this.closeModal} view={this.state.view} /> : null}
 

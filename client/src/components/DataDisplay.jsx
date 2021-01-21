@@ -6,6 +6,13 @@ const Container = styled.div`
 margin-left: 1%;
 `;
 
+const ModalContainer = styled.div`
+margin-left: 3%;
+margin-top: -18px;
+
+
+`;
+
 const Wrapper = styled.div`
 display: flex;
 flex-flow: row nowrap;
@@ -25,27 +32,28 @@ color: #222222;
 
 const ModalCellName = styled.div`
 flex: 1;
-margin-left: 1px;
+margin-left: 55px;
 ${'' /* border: 1px dotted; */}
-text-align: right;
-padding: 5px;
-font-size: 13px;
-`;
-
-const Cell = styled.div`
-flex: 1;
-${'' /* border: 1px dotted; */}
-width: auto;
 text-align: left;
 padding: 5px;
 font-size: 13px;
+flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 90px;
 `;
 
-const RatingBar = styled.img`
-width:150px;
-height: 15px;
-margin-right: 7px;
+const Cell = styled.div`
+
+
+${'' /* border: 1px dotted; */}
+text-align: left;
+padding: 5px;
+font-size: 13px;
+flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 90px;
 `;
+
 
 const DataDisplay = (props) => {
   const { Accuracy, Checkin, Cleanliness, Communication, Location, Value } = props.RatingData;
@@ -103,7 +111,7 @@ transition: width .3s linear;
 `;
 
   if (props.view === 'Modal') {
-    return (<Container>
+    return (<ModalContainer>
       <ModalWrapper>
         <ModalCellName>Cleanliness</ModalCellName>
         <Cell>
@@ -162,7 +170,7 @@ transition: width .3s linear;
         </Cell>
         <Cell>{Value}</Cell>
       </ModalWrapper>
-    </Container>);
+    </ModalContainer>);
   } else {
     return (<Container>
       <Wrapper><DisplayHeader TotalScore={props.TotalScore} NumOfReviews={props.NumOfReviews} /></Wrapper>

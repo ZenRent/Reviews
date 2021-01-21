@@ -9,7 +9,7 @@ max-width: 800px;
 `;
 
 const ModalReviewLayout = styled.ul`
-margin-left: -90px;
+margin-left: -150px;
 margin-top:-35px;
 `;
 

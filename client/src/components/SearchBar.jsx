@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewList from './ReviewList.jsx';
 import styled from 'styled-components';
+import { MagnifyingGlass } from '@styled-icons/open-iconic/MagnifyingGlass';
 
 const FormContainer = styled.form`
 display: inline;
@@ -16,6 +17,12 @@ margin-left: 100px;
 margin-top: 12px;
   }
 `;
+
+const SearchIcon = styled(MagnifyingGlass)`
+  color: black;
+  width:15px;
+height: auto;
+`
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -40,7 +47,7 @@ class SearchBar extends React.Component {
   render() {
     return (<FormContainer onSubmit={this.handleSubmit}>
       <label>
-        <SearchForm type="text" name="search" placeholder="Search reviews" value={this.state.value} onChange={this.handleChange} />
+        <SearchForm type="text" name="search" placeholder="Search reviews" value={this.state.value} onChange={this.handleChange}></SearchForm>
       </label>
       {/* <input type="submit" value="Submit" /> */}
     </FormContainer>)

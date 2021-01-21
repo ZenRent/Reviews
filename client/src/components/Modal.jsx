@@ -10,7 +10,7 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 justify-content: flex-start;
-width: 43%;
+width: 780px;
 height: 90%;
 border: 1px solid;
 padding: 8px;
