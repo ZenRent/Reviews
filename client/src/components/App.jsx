@@ -4,10 +4,12 @@ import styled from 'styled-components';
 import DataDisplay from './DataDisplay.jsx';
 import ReviewList from './ReviewList.jsx';
 import Modal from './Modal.jsx';
+import GlobalStyle from '../GlobalStyles.jsx';
 
 const ModalBtn = styled.button`
 display: flex;
 margin-left: 28%;
+margin-bottom: 25px;
 border: 1px solid;
 padding: 8px;
 background-color: white;
@@ -18,12 +20,30 @@ background-color: #f7f7f7;
   }
 `;
 
+const ProjectContainer = styled.div`
+  }
+`;
+
+const TopBorder = styled.div`
+border-top: solid #CDCDCD 2px;
+margin-left: 29%;
+margin-right: 32%;
+  }
+`;
+
+const BottomBorder = styled.div`
+border-bottom: solid #CDCDCD 2px;
+margin-left: 29%;
+margin-right: 32%;
+  }
+`;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reviews: [],
-      view: 'Modal',
+      view: '',
       RatingData: '',
       TotalScore: '',
       NumOfReviews: '',
@@ -111,14 +131,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div >
+      <ProjectContainer >
+        <TopBorder />
+        <GlobalStyle />
         <DataDisplay RatingData={this.state.RatingData} TotalScore={this.state.TotalScore} NumOfReviews={this.state.NumOfReviews} />
         <ReviewList reviews={this.state.reviews} />
         <ModalBtn onClick={() => this.setState({ view: 'Modal' })}>Show all {this.state.NumOfReviews} Reviews</ModalBtn>
         {this.state.view === 'Modal' ? <Modal reviews={this.state.reviews} RatingData={this.state.RatingData}
           TotalScore={this.state.TotalScore} NumOfReviews={this.state.NumOfReviews} closeModal={this.closeModal} view={this.state.view} /> : null}
-
-      </div>
+        <BottomBorder />
+      </ProjectContainer>
     );
   }
 }

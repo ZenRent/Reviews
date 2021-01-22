@@ -4,13 +4,16 @@ import ReviewEntry from './ReviewEntry.jsx';
 
 const ReviewLayout = styled.ul`
 columns: 2 auto ;
-margin-left: 375px;
+${'' /* margin-left: 375px; */}
+margin-left: 21%;
+margin-right: 21%;
 max-width: 800px;
+
 `;
 
 const ModalReviewLayout = styled.ul`
-margin-left: -150px;
-margin-top:-35px;
+margin-left: -173px;
+margin-top:-50px;
 `;
 
 const ReviewList = (props) => {

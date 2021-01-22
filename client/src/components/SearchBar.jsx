@@ -29,7 +29,7 @@ width: 380px;
 height: 30px;
 radius: 30px;
 border-radius: 30px;
-border: black solid 2px;
+border: #7a7a7a solid 1px;
 margin-top: 15px;
 margin-left: 100px;
 

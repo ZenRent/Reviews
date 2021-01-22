@@ -1,6 +1,5 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: white;
   color: black;
 }
 
@@ -9,3 +8,9 @@ body {
   text-align: center;
 }
 
+/* @font-face {
+  font-family: "Circular";
+  src: local("AssistantRegular"),
+    url("./fonts/assistant.regular.ttf") format("truetype");
+  font-weight: normal;
+} */

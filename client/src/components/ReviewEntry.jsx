@@ -57,6 +57,14 @@ justify-content: flex-start;
 line-height: 1.5;
 `;
 
+const User = styled.div`
+font-weight: bold;
+`;
+const Date = styled.div`
+font-weight: lighter;
+font-size: 12px;
+`;
+
 const ReviewEntry = (props) => {
 
   // console.log("props.review.Reviews.body", props.review.Reviews)
@@ -72,8 +80,8 @@ const ReviewEntry = (props) => {
   return (<div><ReviewContainer>
     <Img src={Image} ></Img>
     <VerticalContainer>
-      <div>{Username}</div>
-      <div>{DateTime}</div>
+      <User>{Username}</User>
+      <Date>{DateTime}</Date>
     </VerticalContainer>
   </ReviewContainer>
     <Main>

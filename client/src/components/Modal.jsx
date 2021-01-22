@@ -43,7 +43,7 @@ padding-top: 5px;
 border: none;
 background: none;
 cursor:pointer;
-color: #4c4c4c;
+color: black;
 font-size: 12px;
 font-weight: bold;
 &:hover {

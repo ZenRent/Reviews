@@ -8,11 +8,12 @@ padding: 5px;
 font-weight: bold;
 font-size:16px;
 margin-left: 5px;
+margin-top: 25px;
 
 `;
 
 const ReviewStar = styled.img`
-width:18px;
+width:15px;
 height: auto;
 margin-right: 7px;
 `;
@@ -28,7 +29,7 @@ margin-left: 5px;
 `;
 
 const ModalReviewStar = styled.img`
-width:25px;
+width:20px;
 height: auto;
 margin-right: 7px;
 `;

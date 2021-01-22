@@ -10,7 +10,6 @@ const ModalContainer = styled.div`
 margin-left: 3%;
 margin-top: -18px;
 
-
 `;
 
 const Wrapper = styled.div`
@@ -33,6 +32,7 @@ color: #222222;
 const ModalCellName = styled.div`
 flex: 1;
 margin-left: 55px;
+margin-right: 20px;
 ${'' /* border: 1px dotted; */}
 text-align: left;
 padding: 5px;
@@ -43,12 +43,20 @@ flex-grow: 0;
 `;
 
 const Cell = styled.div`
-
-
 ${'' /* border: 1px dotted; */}
 text-align: left;
 padding: 5px;
 font-size: 13px;
+flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 90px;
+`;
+
+const Cell1 = styled.div`
+text-align: left;
+padding: 5px;
+font-size: 13px;
+margin-right: 70px;
 flex-grow: 0;
   flex-shrink: 0;
   flex-basis: 90px;
@@ -176,12 +184,12 @@ transition: width .3s linear;
       <Wrapper><DisplayHeader TotalScore={props.TotalScore} NumOfReviews={props.NumOfReviews} /></Wrapper>
 
       <Wrapper>
-        <Cell>Cleanliness</Cell>
+        <Cell1>Cleanliness</Cell1>
         <Cell><Progress>
           <Determinate Category="Cleanliness" ></Determinate>
         </Progress></Cell>
         <Cell>{Cleanliness}</Cell>
-        <Cell>Accuracy</Cell>
+        <Cell1>Accuracy</Cell1>
         <Cell>
           <Progress>
             <Determinate Category="Cleanliness" ></Determinate>
@@ -191,14 +199,14 @@ transition: width .3s linear;
       </Wrapper>
 
       <Wrapper>
-        <Cell>Communication</Cell>
+        <Cell1>Communication</Cell1>
         <Cell>
           <Progress>
             <Determinate Category="Communication" ></Determinate>
           </Progress>
         </Cell>
         <Cell>{Communication}</Cell>
-        <Cell>Location</Cell>
+        <Cell1>Location</Cell1>
         <Cell>
           <Progress>
             <Determinate Category="Location" ></Determinate>
@@ -208,14 +216,14 @@ transition: width .3s linear;
       </Wrapper>
 
       <Wrapper>
-        <Cell>Checkin</Cell>
+        <Cell1>Checkin</Cell1>
         <Cell>
           <Progress>
             <Determinate Category="Checkin" ></Determinate>
           </Progress>
         </Cell>
         <Cell>{Checkin}</Cell>
-        <Cell>Value</Cell>
+        <Cell1>Value</Cell1>
         <Cell>
           <Progress>
             <Determinate Category="Value" ></Determinate>
