@@ -9,12 +9,30 @@ display: inline;
 
 const SearchForm = styled.input`
 background-color: #f7f7f7;
+width: 350px;
+height: 26px;
+radius: 30px;
+border-radius: 30px;
+margin-left: 5px;
+margin-top: 2px;
+border: #f7f7f7;
+
+  }
+`;
+
+const Label = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+background-color: #f7f7f7;
 width: 380px;
 height: 30px;
 radius: 30px;
 border-radius: 30px;
+border: black solid 2px;
+margin-top: 15px;
 margin-left: 100px;
-margin-top: 12px;
+
   }
 `;
 
@@ -22,6 +40,10 @@ const SearchIcon = styled(MagnifyingGlass)`
   color: black;
   width:15px;
 height: auto;
+margin-left: 1px;
+margin-top: 1px;
+z-index: 2;
+padding-left: 5px;
 `
 
 class SearchBar extends React.Component {
@@ -46,9 +68,9 @@ class SearchBar extends React.Component {
 
   render() {
     return (<FormContainer onSubmit={this.handleSubmit}>
-      <label>
+      <Label><SearchIcon />
         <SearchForm type="text" name="search" placeholder="Search reviews" value={this.state.value} onChange={this.handleChange}></SearchForm>
-      </label>
+      </Label>
       {/* <input type="submit" value="Submit" /> */}
     </FormContainer>)
   }
