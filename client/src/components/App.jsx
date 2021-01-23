@@ -8,7 +8,7 @@ import GlobalStyle from '../GlobalStyles.jsx';
 
 const ModalBtn = styled.button`
 display: flex;
-margin-left: 28%;
+margin-left: 29%;
 margin-bottom: 25px;
 border: 1px solid;
 padding: 8px;
@@ -43,7 +43,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       reviews: [],
-      view: '',
+      view: 'Modal',
       RatingData: '',
       TotalScore: '',
       NumOfReviews: '',
@@ -131,7 +131,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <ProjectContainer >
+      <ProjectContainer>
         <TopBorder />
         <GlobalStyle />
         <DataDisplay RatingData={this.state.RatingData} TotalScore={this.state.TotalScore} NumOfReviews={this.state.NumOfReviews} />

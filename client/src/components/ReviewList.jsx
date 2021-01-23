@@ -13,7 +13,7 @@ max-width: 800px;
 
 const ModalReviewLayout = styled.ul`
 margin-left: -173px;
-margin-top:-50px;
+margin-top:50px;
 `;
 
 const ReviewList = (props) => {

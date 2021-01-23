@@ -8,7 +8,7 @@ margin-left: 1%;
 
 const ModalContainer = styled.div`
 margin-left: 3%;
-margin-top: -18px;
+margin-top: 15%;
 
 `;
 
@@ -78,6 +78,7 @@ position: relative;
   background-clip: padding-box;
   margin: 0.5rem 0 .5rem 0;
   overflow: hidden;
+  zindex: -10;
 `;
 
   const LocationBar = (Math.ceil(Location * 20));
@@ -88,10 +89,11 @@ position: relative;
   const ValueBar = (Math.ceil(Value * 20));
 
   const Determinate = styled.div`
-position: absolute;
+    position: absolute;
     top: 0;
     bottom: 0;
     background-color: black;
+    zindex: -10;
 
     width: ${props => {
       if (props.Category === "Accuracy") {
@@ -112,7 +114,6 @@ position: absolute;
       if (props.Category === "Value") {
         return (`${ValueBar}%`)
       }
-
     }
     };
 transition: width .3s linear;
@@ -185,9 +186,11 @@ transition: width .3s linear;
 
       <Wrapper>
         <Cell1>Cleanliness</Cell1>
-        <Cell><Progress>
-          <Determinate Category="Cleanliness" ></Determinate>
-        </Progress></Cell>
+        <Cell>
+          <Progress>
+            <Determinate Category="Cleanliness" ></Determinate>
+          </Progress>
+        </Cell>
         <Cell>{Cleanliness}</Cell>
         <Cell1>Accuracy</Cell1>
         <Cell>
