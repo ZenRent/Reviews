@@ -3,11 +3,16 @@ import styled from 'styled-components';
 import ReviewEntry from './ReviewEntry.jsx';
 
 const ReviewLayout = styled.ul`
-columns: 2 auto ;
+${'' /* columns: 2 auto; */}
+display: flex;
+flex-wrap: wrap;
+grid-gap: 2px;
 ${'' /* margin-left: 375px; */}
-margin-left: 21%;
-margin-right: 21%;
+${'' /* margin-left: 22%;
+margin-right: 22%; */}
 max-width: 800px;
+flex-basis: 400px;
+
 
 `;
 

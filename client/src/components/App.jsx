@@ -8,33 +8,50 @@ import GlobalStyle from '../GlobalStyles.jsx';
 
 const ModalBtn = styled.button`
 display: flex;
-margin-left: 29%;
+margin-left: -22%;
+margin-right: 1%;
 margin-bottom: 25px;
 border: 1px solid;
 padding: 8px;
 background-color: white;
 border-radius: 7px;
 cursor:pointer;
+width: 145px;
+
 &:hover {
 background-color: #f7f7f7;
+
+
+
   }
 `;
 
 const ProjectContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
   }
 `;
 
+// const DataDisplay = styled.component`
+// justify-content: flex-start;
+
+//   }
+// `;
+
 const TopBorder = styled.div`
 border-top: solid #CDCDCD 2px;
-margin-left: 29%;
-margin-right: 32%;
+margin-left: 32%;
+margin-right: 21%;
   }
 `;
 
 const BottomBorder = styled.div`
 border-bottom: solid #CDCDCD 2px;
-margin-left: 29%;
-margin-right: 32%;
+margin-left: 32%;
+margin-right: 21%;
   }
 `;
 
@@ -43,7 +60,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       reviews: [],
-      view: 'Modal',
+      view: '',
       RatingData: '',
       TotalScore: '',
       NumOfReviews: '',
@@ -131,16 +148,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <ProjectContainer>
+      <div>
         <TopBorder />
-        <GlobalStyle />
-        <DataDisplay RatingData={this.state.RatingData} TotalScore={this.state.TotalScore} NumOfReviews={this.state.NumOfReviews} />
-        <ReviewList reviews={this.state.reviews} />
-        <ModalBtn onClick={() => this.setState({ view: 'Modal' })}>Show all {this.state.NumOfReviews} Reviews</ModalBtn>
-        {this.state.view === 'Modal' ? <Modal reviews={this.state.reviews} RatingData={this.state.RatingData}
-          TotalScore={this.state.TotalScore} NumOfReviews={this.state.NumOfReviews} closeModal={this.closeModal} view={this.state.view} /> : null}
+        <ProjectContainer>
+          <GlobalStyle />
+          <DataDisplay RatingData={this.state.RatingData} TotalScore={this.state.TotalScore} NumOfReviews={this.state.NumOfReviews} />
+          <ReviewList reviews={this.state.reviews} />
+          <ModalBtn onClick={() => this.setState({ view: 'Modal' })}>Show all {this.state.NumOfReviews} Reviews</ModalBtn>
+          {this.state.view === 'Modal' ? <Modal reviews={this.state.reviews} RatingData={this.state.RatingData}
+            TotalScore={this.state.TotalScore} NumOfReviews={this.state.NumOfReviews} closeModal={this.closeModal} view={this.state.view} /> : null}
+        </ProjectContainer>
         <BottomBorder />
-      </ProjectContainer>
+      </div>
     );
   }
 }

@@ -39,7 +39,7 @@ const StickyHeader = styled.div`
     left: 0;
     overflow: hidden;
     width: 100%;
-    height: 10%;
+    height: 7%;
     position: fixed;
     background-color:white;
     zindex: 100;

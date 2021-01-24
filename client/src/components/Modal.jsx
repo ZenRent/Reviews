@@ -6,6 +6,25 @@ import SearchBar from './SearchBar.jsx';
 import DisplayHeader from './DisplayHeader.jsx';
 import ModalHeader from './ModalHeader.jsx';
 
+const StickyHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border: 1px white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom: white;
+
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 10%;
+    position: fixed;
+    background-color:white;
+    z-index: 100;
+`;
+
 const ModalObj = styled.div`
 display: flex;
 ${'' /* transition: all .5s; */}
@@ -18,13 +37,6 @@ border: 1px solid gray;
 padding: 8px;
 background-color: white;
 border-radius: 15px;
-${'' /* allow modal to accomodate all of content at present view */}
-${'' /* min-height: 100px;
-overflow: hidden; */}
-${'' /* max height and overflow allow scrollable */}
-${'' /* max-height: calc(100vh - 200px);
-    overflow-y: auto; */}
-
 position: absolute;
   top: 50%;
   left: 50%;
@@ -39,7 +51,7 @@ ${'' /* allow modal to accomodate all of content at present view */}
 min-height: 100px;
 overflow: hidden;
 ${'' /* max height and overflow allow scrollable */}
-max-height: calc(100vh - 200px);
+max-height: calc(100vh - 110px);
     overflow-y: auto;
     zindex: -1;
 `;
@@ -47,8 +59,9 @@ max-height: calc(100vh - 200px);
 const ModalBackDrop = styled.div`
 top: 0;
 background-color: rgba(32,32,32,0.6);
- position: absolute;
- zindex: 25;
+ position: fixed;
+ top: 0px;
+    left: 0px;
  height: 100%;
  width: 100%;
 `;
@@ -74,25 +87,6 @@ font-weight: bold;
 border-radius: 30px;
 background: #BEBEBE;
   }
-`;
-
-const StickyHeader = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  border: 1px solid gray;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom: white;
-
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    width: 100%;
-    height: 10%;
-    position: fixed;
-    background-color:white;
-    zindex: 100;
 `;
 
 class Modal extends React.Component {

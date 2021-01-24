@@ -8,8 +8,8 @@ const size = {
   tablet: '768px',
   laptop: '1024px',
   laptopL: '1440px',
-  desktop: '2560px'
-}
+  desktop: '2560px',
+};
 
 const ReviewContainer = styled.div`
 display: flex;
@@ -20,8 +20,9 @@ padding: 4px;
 font-size: 13px;
 color: #222222;
 grid-gap: 5px;
-width: 370px;
+width: 470px;
 letter-spacing: .75px;
+width: 50%;
 `;
 
 const VerticalContainer = styled.div`
@@ -58,7 +59,10 @@ line-height: 1.5;
 `;
 
 const User = styled.div`
-font-weight: bold;
+font-weight: 900;
+color: black;
+font-size: 12.3px;
+
 `;
 const Date = styled.div`
 font-weight: lighter;

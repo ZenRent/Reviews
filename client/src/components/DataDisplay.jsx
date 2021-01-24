@@ -3,43 +3,16 @@ import styled from 'styled-components';
 import DisplayHeader from './DisplayHeader.jsx';
 
 const Container = styled.div`
-margin-left: 1%;
-`;
-
-const ModalContainer = styled.div`
-margin-left: 3%;
-margin-top: 15%;
+margin-left: 5%;
 
 `;
 
 const Wrapper = styled.div`
 display: flex;
 flex-flow: row nowrap;
-margin-left: 28%;
-margin-right: 28%;
+${'' /* margin-left: 28%;
+margin-right: 28%; */}
 color: #222222;
-`;
-
-const ModalWrapper = styled.div`
-display: flex;
-justify-content: flex-end;
-flex-flow: row nowrap;
-margin-left: 58%;
-
-color: #222222;
-`;
-
-const ModalCellName = styled.div`
-flex: 1;
-margin-left: 55px;
-margin-right: 20px;
-${'' /* border: 1px dotted; */}
-text-align: left;
-padding: 5px;
-font-size: 13px;
-flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: 90px;
 `;
 
 const Cell = styled.div`
@@ -63,6 +36,38 @@ flex-grow: 0;
 `;
 
 
+const ModalContainer = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+margin-left: 3%;
+margin-top: 12%;
+
+`;
+
+const ModalWrapper = styled.div`
+display: flex;
+justify-content: flex-end;
+flex-flow: row nowrap;
+margin-left: 58%;
+margin-bottom: .1%;
+
+color: #222222;
+`;
+
+const ModalCellName = styled.div`
+flex: 1;
+margin-left: 55px;
+margin-right: 20px;
+${'' /* border: 1px dotted; */}
+text-align: left;
+padding: 5px;
+font-size: 12px;
+flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 90px;
+`;
+
 const DataDisplay = (props) => {
   const { Accuracy, Checkin, Cleanliness, Communication, Location, Value } = props.RatingData;
   const AccuracyBar1 = Math.ceil(Accuracy * 20);
@@ -78,7 +83,7 @@ position: relative;
   background-clip: padding-box;
   margin: 0.5rem 0 .5rem 0;
   overflow: hidden;
-  zindex: -10;
+  z-index: -10;
 `;
 
   const LocationBar = (Math.ceil(Location * 20));
@@ -93,7 +98,7 @@ position: relative;
     top: 0;
     bottom: 0;
     background-color: black;
-    zindex: -10;
+    z-index: -10;
 
     width: ${props => {
       if (props.Category === "Accuracy") {
@@ -120,66 +125,67 @@ transition: width .3s linear;
 `;
 
   if (props.view === 'Modal') {
-    return (<ModalContainer>
-      <ModalWrapper>
-        <ModalCellName>Cleanliness</ModalCellName>
-        <Cell>
-          <Progress>
-            <Determinate Category="Cleanliness" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Cleanliness}</Cell>
-      </ModalWrapper>
+    return (
+      <ModalContainer>
+        <ModalWrapper>
+          <ModalCellName>Cleanliness</ModalCellName>
+          <Cell>
+            <Progress>
+              <Determinate Category="Cleanliness" ></Determinate>
+            </Progress>
+          </Cell>
+          <Cell>{Cleanliness}</Cell>
+        </ModalWrapper>
 
-      <ModalWrapper>
-        <ModalCellName>Accuracy</ModalCellName>
-        <Cell>
-          <Progress>
-            <Determinate Category="Accuracy" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Accuracy}</Cell>
-      </ModalWrapper>
+        <ModalWrapper>
+          <ModalCellName>Accuracy</ModalCellName>
+          <Cell>
+            <Progress>
+              <Determinate Category="Accuracy" ></Determinate>
+            </Progress>
+          </Cell>
+          <Cell>{Accuracy}</Cell>
+        </ModalWrapper>
 
-      <ModalWrapper>
-        <ModalCellName>Communication</ModalCellName>
-        <Cell>
-          <Progress>
-            <Determinate Category="Communication" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Communication}</Cell>
-      </ModalWrapper>
+        <ModalWrapper>
+          <ModalCellName>Communication</ModalCellName>
+          <Cell>
+            <Progress>
+              <Determinate Category="Communication" ></Determinate>
+            </Progress>
+          </Cell>
+          <Cell>{Communication}</Cell>
+        </ModalWrapper>
 
-      <ModalWrapper>
-        <ModalCellName>Location</ModalCellName>
-        <Cell>
-          <Progress>
-            <Determinate Category="Location" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Location}</Cell>
-      </ModalWrapper>
+        <ModalWrapper>
+          <ModalCellName>Location</ModalCellName>
+          <Cell>
+            <Progress>
+              <Determinate Category="Location" ></Determinate>
+            </Progress>
+          </Cell>
+          <Cell>{Location}</Cell>
+        </ModalWrapper>
 
-      <ModalWrapper><ModalCellName>Checkin</ModalCellName>
-        <Cell>
-          <Progress>
-            <Determinate Category="Checkin" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Checkin}</Cell>
-      </ModalWrapper>
+        <ModalWrapper><ModalCellName>Checkin</ModalCellName>
+          <Cell>
+            <Progress>
+              <Determinate Category="Checkin" ></Determinate>
+            </Progress>
+          </Cell>
+          <Cell>{Checkin}</Cell>
+        </ModalWrapper>
 
-      <ModalWrapper>
-        <ModalCellName>Value</ModalCellName>
-        <Cell>
-          <Progress>
-            <Determinate Category="Value" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Value}</Cell>
-      </ModalWrapper>
-    </ModalContainer>);
+        <ModalWrapper>
+          <ModalCellName>Value</ModalCellName>
+          <Cell>
+            <Progress>
+              <Determinate Category="Value" ></Determinate>
+            </Progress>
+          </Cell>
+          <Cell>{Value}</Cell>
+        </ModalWrapper>
+      </ModalContainer>);
   } else {
     return (<Container>
       <Wrapper><DisplayHeader TotalScore={props.TotalScore} NumOfReviews={props.NumOfReviews} /></Wrapper>
