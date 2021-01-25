@@ -53,7 +53,6 @@ overflow: hidden;
 ${'' /* max height and overflow allow scrollable */}
 max-height: calc(100vh - 110px);
     overflow-y: auto;
-    zindex: -1;
 `;
 
 const ModalBackDrop = styled.div`
@@ -110,15 +109,16 @@ class Modal extends React.Component {
 
         <ModalObj>
 
+
+          {/* <ModalHeader view={this.props.view} closeModal={this.props.closeModal} /> */}
+          <StickyHeader>
+            <XCloseBtn onClick={() => this.props.closeModal()}>X</XCloseBtn>
+            <Row>
+              <DisplayHeader view={this.props.view} TotalScore={this.props.TotalScore} NumOfReviews={this.props.NumOfReviews} />
+              <SearchBar filterSearch={this.filterSearch} />
+            </Row>
+          </StickyHeader>
           <ModalBody>
-            {/* <ModalHeader view={this.props.view} closeModal={this.props.closeModal} /> */}
-            <StickyHeader>
-              <XCloseBtn onClick={() => this.props.closeModal()}>X</XCloseBtn>
-              <Row>
-                <DisplayHeader view={this.props.view} TotalScore={this.props.TotalScore} NumOfReviews={this.props.NumOfReviews} />
-                <SearchBar filterSearch={this.filterSearch} />
-              </Row>
-            </StickyHeader>
 
             <Row>
               <DataDisplay view={this.props.view} RatingData={this.props.RatingData} />

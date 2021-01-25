@@ -12,8 +12,6 @@ ${'' /* margin-left: 22%;
 margin-right: 22%; */}
 max-width: 800px;
 flex-basis: 400px;
-
-
 `;
 
 const ModalReviewLayout = styled.ul`

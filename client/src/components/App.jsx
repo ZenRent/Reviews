@@ -64,16 +64,23 @@ class App extends React.Component {
       RatingData: '',
       TotalScore: '',
       NumOfReviews: '',
+      WindowWidth: window.innerWidth,
     };
 
     this.getReviews = this.getReviews.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.getRatingsData = this.getRatingsData.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
     this.getReviews();
+    window.addEventListener("resize", this.handleResize);
   }
+
+  handleResize(e) {
+    this.setState({ WindowWidth: window.innerWidth });
+  };
 
   getReviews() {
     console.log('hit getReviews');

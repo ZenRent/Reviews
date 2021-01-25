@@ -4,7 +4,6 @@ import DisplayHeader from './DisplayHeader.jsx';
 
 const Container = styled.div`
 margin-left: 5%;
-
 `;
 
 const Wrapper = styled.div`
@@ -124,7 +123,7 @@ position: relative;
 transition: width .3s linear;
 `;
 
-  if (props.view === 'Modal') {
+  if (props.view === 'Modal' || window.innerWidth <= 830) {
     return (
       <ModalContainer>
         <ModalWrapper>
@@ -187,6 +186,7 @@ transition: width .3s linear;
         </ModalWrapper>
       </ModalContainer>);
   } else {
+    console.log("window.innerWidth", window.innerWidth)
     return (<Container>
       <Wrapper><DisplayHeader TotalScore={props.TotalScore} NumOfReviews={props.NumOfReviews} /></Wrapper>
 

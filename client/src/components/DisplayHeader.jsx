@@ -9,7 +9,6 @@ font-weight: bold;
 font-size:16px;
 margin-left: 5px;
 margin-top: 25px;
-
 `;
 
 const ReviewStar = styled.img`
