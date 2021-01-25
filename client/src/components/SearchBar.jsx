@@ -9,6 +9,7 @@ display: inline;
 
 const SearchForm = styled.input`
 background-color: #f7f7f7;
+outline: 0;
 width: 350px;
 height: 26px;
 radius: 30px;
