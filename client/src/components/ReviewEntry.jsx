@@ -1,16 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const size = {
-  mobileS: '320px',
-  mobileM: '375px',
-  mobileL: '425px',
-  tablet: '768px',
-  laptop: '1024px',
-  laptopL: '1440px',
-  desktop: '2560px',
-};
-
 const ReviewContainer = styled.div`
 display: flex;
 margin: 40px 20px 3px 20px;
@@ -69,6 +59,10 @@ font-weight: lighter;
 font-size: 12px;
 `;
 
+const HighLight = styled.p`
+color: yellow;
+`;
+
 const ReviewEntry = (props) => {
 
   // console.log("props.review.Reviews.body", props.review.Reviews)
@@ -78,7 +72,12 @@ const ReviewEntry = (props) => {
 
   // console.log("props.review.Reviews[0].Body", props.review.Reviews[0].Body)
   let { Body, Username, DateTime, Image } = props.review.Reviews[0];
+  console.log("props.targetString", props.targetString)
+
   // console.log("DateTime", DateTime);
+  // if (props.targetString){
+  //   return (<Paragraph>{Body.replace(props.targetString, props.targetString)}</Paragraph>)
+  // }
 
 
   return (<div><ReviewContainer>

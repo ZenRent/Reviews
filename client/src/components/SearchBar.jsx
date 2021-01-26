@@ -1,5 +1,4 @@
 import React from 'react';
-import ReviewList from './ReviewList.jsx';
 import styled from 'styled-components';
 import { MagnifyingGlass } from '@styled-icons/open-iconic/MagnifyingGlass';
 
@@ -17,8 +16,6 @@ border-radius: 30px;
 margin-left: 5px;
 margin-top: 2px;
 border: #f7f7f7;
-
-  }
 `;
 
 const Label = styled.div`
@@ -33,8 +30,6 @@ border-radius: 30px;
 border: #7a7a7a solid 1px;
 margin-top: 15px;
 margin-left: 100px;
-
-  }
 `;
 
 const SearchIcon = styled(MagnifyingGlass)`
@@ -45,7 +40,7 @@ margin-left: 1px;
 margin-top: 1px;
 z-index: 2;
 padding-left: 5px;
-`
+`;
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -59,7 +54,6 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('this.state.search', this.state.search);
     this.props.filterSearch(this.state.search);
   }
 
@@ -68,12 +62,20 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    return (<FormContainer onSubmit={this.handleSubmit}>
-      <Label><SearchIcon />
-        <SearchForm type="text" name="search" placeholder="Search reviews" value={this.state.value} onChange={this.handleChange}></SearchForm>
-      </Label>
-      {/* <input type="submit" value="Submit" /> */}
-    </FormContainer>)
+    return (
+      <FormContainer onSubmit={this.handleSubmit}>
+        <Label>
+          <SearchIcon />
+          <SearchForm
+            type="text"
+            name="search"
+            placeholder="Search reviews"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
+        </Label>
+      </FormContainer>
+    );
   }
 }
 

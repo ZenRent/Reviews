@@ -34,7 +34,6 @@ flex-grow: 0;
   flex-basis: 90px;
 `;
 
-
 const ModalContainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -68,9 +67,9 @@ flex-grow: 0;
 `;
 
 const DataDisplay = (props) => {
-  const { Accuracy, Checkin, Cleanliness, Communication, Location, Value } = props.RatingData;
-  const AccuracyBar1 = Math.ceil(Accuracy * 20);
-  console.log('AccuracyBar1', AccuracyBar1);
+  const {
+    Accuracy, Checkin, Cleanliness, Communication, Location, Value,
+  } = props.RatingData;
 
   const Progress = styled.div`
 position: relative;
@@ -100,37 +99,37 @@ position: relative;
     z-index: -10;
 
     width: ${props => {
-      if (props.Category === "Accuracy") {
-        return (`${AccuracyBar}%`)
-      }
-      if (props.Category === "Location") {
-        return (`${LocationBar}%`)
-      }
-      if (props.Category === "Checkin") {
-        return (`${CheckinBar}%`)
-      }
-      if (props.Category === "Cleanliness") {
-        return (`${CleanlinessBar}%`)
-      }
-      if (props.Category === "Communication") {
-        return (`${CommunicationBar}%`)
-      }
-      if (props.Category === "Value") {
-        return (`${ValueBar}%`)
-      }
+    if (props.Category === 'Accuracy') {
+      return (`${AccuracyBar}%`);
     }
-    };
+    if (props.Category === 'Location') {
+      return (`${LocationBar}%`);
+    }
+    if (props.Category === 'Checkin') {
+      return (`${CheckinBar}%`);
+    }
+    if (props.Category === 'Cleanliness') {
+      return (`${CleanlinessBar}%`);
+    }
+    if (props.Category === 'Communication') {
+      return (`${CommunicationBar}%`);
+    }
+    if (props.Category === 'Value') {
+      return (`${ValueBar}%`);
+    }
+  }
+  };
 transition: width .3s linear;
 `;
-
-  if (props.view === 'Modal' || window.innerWidth <= 830) {
+  console.log(window.innerWidth)
+  if (props.view === 'Modal' || window.innerWidth <= 954) {
     return (
       <ModalContainer>
         <ModalWrapper>
           <ModalCellName>Cleanliness</ModalCellName>
           <Cell>
             <Progress>
-              <Determinate Category="Cleanliness" ></Determinate>
+              <Determinate Category="Cleanliness" />
             </Progress>
           </Cell>
           <Cell>{Cleanliness}</Cell>
@@ -140,7 +139,7 @@ transition: width .3s linear;
           <ModalCellName>Accuracy</ModalCellName>
           <Cell>
             <Progress>
-              <Determinate Category="Accuracy" ></Determinate>
+              <Determinate Category="Accuracy" />
             </Progress>
           </Cell>
           <Cell>{Accuracy}</Cell>
@@ -150,7 +149,7 @@ transition: width .3s linear;
           <ModalCellName>Communication</ModalCellName>
           <Cell>
             <Progress>
-              <Determinate Category="Communication" ></Determinate>
+              <Determinate Category="Communication" />
             </Progress>
           </Cell>
           <Cell>{Communication}</Cell>
@@ -160,16 +159,17 @@ transition: width .3s linear;
           <ModalCellName>Location</ModalCellName>
           <Cell>
             <Progress>
-              <Determinate Category="Location" ></Determinate>
+              <Determinate Category="Location" />
             </Progress>
           </Cell>
           <Cell>{Location}</Cell>
         </ModalWrapper>
 
-        <ModalWrapper><ModalCellName>Checkin</ModalCellName>
+        <ModalWrapper>
+          <ModalCellName>Checkin</ModalCellName>
           <Cell>
             <Progress>
-              <Determinate Category="Checkin" ></Determinate>
+              <Determinate Category="Checkin" />
             </Progress>
           </Cell>
           <Cell>{Checkin}</Cell>
@@ -179,68 +179,73 @@ transition: width .3s linear;
           <ModalCellName>Value</ModalCellName>
           <Cell>
             <Progress>
-              <Determinate Category="Value" ></Determinate>
+              <Determinate Category="Value" />
             </Progress>
           </Cell>
           <Cell>{Value}</Cell>
         </ModalWrapper>
       </ModalContainer>);
   } else {
-    console.log("window.innerWidth", window.innerWidth)
-    return (<Container>
-      <Wrapper><DisplayHeader TotalScore={props.TotalScore} NumOfReviews={props.NumOfReviews} /></Wrapper>
+    return (
+      <Container>
+        <Wrapper>
+          <DisplayHeader
+            TotalScore={props.TotalScore}
+            NumOfReviews={props.NumOfReviews}
+          />
+        </Wrapper>
+        <Wrapper>
+          <Cell1>Cleanliness</Cell1>
+          <Cell>
+            <Progress>
+              <Determinate Category="Cleanliness" />
+            </Progress>
+          </Cell>
+          <Cell>{Cleanliness}</Cell>
+          <Cell1>Accuracy</Cell1>
+          <Cell>
+            <Progress>
+              <Determinate Category="Cleanliness" />
+            </Progress>
+          </Cell>
+          <Cell>{Accuracy}</Cell>
+        </Wrapper>
 
-      <Wrapper>
-        <Cell1>Cleanliness</Cell1>
-        <Cell>
-          <Progress>
-            <Determinate Category="Cleanliness" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Cleanliness}</Cell>
-        <Cell1>Accuracy</Cell1>
-        <Cell>
-          <Progress>
-            <Determinate Category="Cleanliness" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Accuracy}</Cell>
-      </Wrapper>
+        <Wrapper>
+          <Cell1>Communication</Cell1>
+          <Cell>
+            <Progress>
+              <Determinate Category="Communication" />
+            </Progress>
+          </Cell>
+          <Cell>{Communication}</Cell>
+          <Cell1>Location</Cell1>
+          <Cell>
+            <Progress>
+              <Determinate Category="Location" />
+            </Progress>
+          </Cell>
+          <Cell>{Location}</Cell>
+        </Wrapper>
 
-      <Wrapper>
-        <Cell1>Communication</Cell1>
-        <Cell>
-          <Progress>
-            <Determinate Category="Communication" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Communication}</Cell>
-        <Cell1>Location</Cell1>
-        <Cell>
-          <Progress>
-            <Determinate Category="Location" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Location}</Cell>
-      </Wrapper>
-
-      <Wrapper>
-        <Cell1>Checkin</Cell1>
-        <Cell>
-          <Progress>
-            <Determinate Category="Checkin" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Checkin}</Cell>
-        <Cell1>Value</Cell1>
-        <Cell>
-          <Progress>
-            <Determinate Category="Value" ></Determinate>
-          </Progress>
-        </Cell>
-        <Cell>{Value}</Cell>
-      </Wrapper>
-    </Container>);
+        <Wrapper>
+          <Cell1>Checkin</Cell1>
+          <Cell>
+            <Progress>
+              <Determinate Category="Checkin" />
+            </Progress>
+          </Cell>
+          <Cell>{Checkin}</Cell>
+          <Cell1>Value</Cell1>
+          <Cell>
+            <Progress>
+              <Determinate Category="Value" />
+            </Progress>
+          </Cell>
+          <Cell>{Value}</Cell>
+        </Wrapper>
+      </Container>
+    );
   }
 };
 

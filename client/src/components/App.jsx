@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -18,11 +19,9 @@ border-radius: 7px;
 cursor:pointer;
 width: 145px;
 
+
 &:hover {
 background-color: #f7f7f7;
-
-
-
   }
 `;
 
@@ -31,6 +30,9 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+${'' /* TEMPORARY FIX FOR OFFCENTER APP!!! */}
+margin-right: 14%;
+
 
   }
 `;
@@ -43,15 +45,15 @@ justify-content: center;
 
 const TopBorder = styled.div`
 border-top: solid #CDCDCD 2px;
-margin-left: 32%;
-margin-right: 21%;
+margin-left: 25%;
+margin-right: 30%;
   }
 `;
 
 const BottomBorder = styled.div`
 border-bottom: solid #CDCDCD 2px;
-margin-left: 32%;
-margin-right: 21%;
+margin-left: 25%;
+margin-right: 30%;
   }
 `;
 
@@ -75,18 +77,16 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getReviews();
-    window.addEventListener("resize", this.handleResize);
+    window.addEventListener('resize', this.handleResize);
   }
 
-  handleResize(e) {
+  handleResize() {
     this.setState({ WindowWidth: window.innerWidth });
-  };
+  }
 
   getReviews() {
-    console.log('hit getReviews');
     axios.get('/reviews')
       .then((response) => {
-        console.log('response.data', response.data);
         const targetReviews = [];
         response.data.forEach((current) => {
           if (current.Listing === '662 Stacey Union') {
@@ -103,16 +103,20 @@ class App extends React.Component {
   }
 
   getRatingsData(targetReviews) {
-    console.log('TARGET REVIEWS in func', targetReviews);
     const RatingsArray = targetReviews.map((current) => (current.Rating));
-    console.log('RatingsArray', RatingsArray);
 
-    const AccuracyAvg = RatingsArray.reduce((total, next) => total + next.Accuracy, 0) / RatingsArray.length;
-    const CleanlinessAvg = RatingsArray.reduce((total, next) => total + next.Cleanliness, 0) / RatingsArray.length;
-    const CommunicationAvg = RatingsArray.reduce((total, next) => total + next.Communication, 0) / RatingsArray.length;
-    const LocationAvg = RatingsArray.reduce((total, next) => total + next.Location, 0) / RatingsArray.length;
-    const CheckinAvg = RatingsArray.reduce((total, next) => total + next.Checkin, 0) / RatingsArray.length;
-    const ValueAvg = RatingsArray.reduce((total, next) => total + next.Value, 0) / RatingsArray.length;
+    const AccuracyAvg = RatingsArray.reduce((total, next) =>
+      total + next.Accuracy, 0) / RatingsArray.length;
+    const CleanlinessAvg = RatingsArray.reduce((total, next) =>
+      total + next.Cleanliness, 0) / RatingsArray.length;
+    const CommunicationAvg = RatingsArray.reduce((total, next) =>
+      total + next.Communication, 0) / RatingsArray.length;
+    const LocationAvg = RatingsArray.reduce((total, next) =>
+      total + next.Location, 0) / RatingsArray.length;
+    const CheckinAvg = RatingsArray.reduce((total, next) =>
+      total + next.Checkin, 0) / RatingsArray.length;
+    const ValueAvg = RatingsArray.reduce((total, next) =>
+      total + next.Value, 0) / RatingsArray.length;
     const Obj = {
       Accuracy: AccuracyAvg,
       Cleanliness: CleanlinessAvg,
@@ -123,18 +127,12 @@ class App extends React.Component {
     };
     Object.entries(Obj).forEach(([key, value]) => {
       Obj[key] = Number.parseFloat(value).toFixed(1);
-      console.log('Obj[key]', Obj[key]);
     });
-    console.log('Obj', Obj);
     this.setState({ RatingData: Obj });
 
-    const Integers = Object.values(Obj).map((current) => {
-      return (parseFloat(current));
-    });
+    const Integers = Object.values(Obj).map((current) => (parseFloat(current)));
     const Sum = Integers.reduce((t, n) => t + n) / 6;
-    console.log('Sum', Sum);
     const Score = Number.parseFloat(Sum).toFixed(2);
-    console.log('Score', Score);
     this.setState({ TotalScore: Score });
 
     // console.log('AccuracyAvg', AccuracyAvg),
@@ -156,14 +154,27 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TopBorder />
+      <TopBorder />
         <ProjectContainer>
           <GlobalStyle />
-          <DataDisplay RatingData={this.state.RatingData} TotalScore={this.state.TotalScore} NumOfReviews={this.state.NumOfReviews} />
+          <DataDisplay
+            RatingData={this.state.RatingData}
+            TotalScore={this.state.TotalScore}
+            NumOfReviews={this.state.NumOfReviews}
+          />
           <ReviewList reviews={this.state.reviews} />
-          <ModalBtn onClick={() => this.setState({ view: 'Modal' })}>Show all {this.state.NumOfReviews} Reviews</ModalBtn>
-          {this.state.view === 'Modal' ? <Modal reviews={this.state.reviews} RatingData={this.state.RatingData}
-            TotalScore={this.state.TotalScore} NumOfReviews={this.state.NumOfReviews} closeModal={this.closeModal} view={this.state.view} /> : null}
+          <ModalBtn onClick={() => this.setState({ view: 'Modal' })}>
+            Show all {this.state.NumOfReviews} Reviews
+          </ModalBtn>
+          {this.state.view === 'Modal'
+            ? <Modal
+              reviews={this.state.reviews}
+              RatingData={this.state.RatingData}
+              TotalScore={this.state.TotalScore}
+              NumOfReviews={this.state.NumOfReviews}
+              closeModal={this.closeModal}
+              view={this.state.view}
+            /> : null}
         </ProjectContainer>
         <BottomBorder />
       </div>

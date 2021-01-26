@@ -25,7 +25,9 @@ const ReviewList = (props) => {
       props.reviews.map((review) => {
         if (review.Reviews[0].Body.includes(props.TargetString)) {
           return (<ReviewEntry
-            review={review} />);
+            review={review}
+            targetString={props.TargetString}
+            />)
         }
       })
     }</ModalReviewLayout>);

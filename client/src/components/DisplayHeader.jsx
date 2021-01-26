@@ -38,11 +38,16 @@ const DisplayHeader = (props) => {
     return (
       <ModalHeading>
         <ModalReviewStar src="red-star.png" />
-        {props.TotalScore} ({props.NumOfReviews} reviews)</ModalHeading>)
+        {props.TotalScore} ({props.NumOfReviews} reviews)
+      </ModalHeading>
+    );
   } else {
-    return (<Heading>
-      <ReviewStar src="red-star.png" />
-      {props.TotalScore} ({props.NumOfReviews} reviews)</Heading>)
+    return (
+      <Heading>
+        <ReviewStar src="red-star.png" />
+        {props.TotalScore} ({props.NumOfReviews} reviews)
+      </Heading>
+    )
   }
 };
 
