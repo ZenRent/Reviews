@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Advanced Shallow rendering 1`] = `
+<div>
+  <div>
+    <div
+      className="sc-bdfBwQ faNODT"
+    >
+      <h1
+        className="sc-gsTCUz jrfRmK"
+      >
+        4.94 (161 reviews)
+      </h1>
+    </div>
+    <div
+      className="sc-bdfBwQ faNODT"
+    >
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Cleanliness
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********5.0
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Accuracy
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********4.5
+      </div>
+    </div>
+    <div
+      className="sc-bdfBwQ faNODT"
+    >
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Communication
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********4.8
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Location
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********4.9
+      </div>
+    </div>
+    <div
+      className="sc-bdfBwQ faNODT"
+    >
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Check-in
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********4.6
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Value
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********5.0
+      </div>
+    </div>
+  </div>
+  <ul
+    className="sc-iBPRYJ hRnkiD"
+  />
+  <button
+    className="sc-pFZIQ iNoUAp"
+    onClick={[Function]}
+  >
+    Show all Reviews
+  </button>
+</div>
+`;
+
+exports[`Advanced, Get Snapshot Shallow rendering 1`] = `
+<div>
+  <div>
+    <div
+      className="sc-bdfBwQ faNODT"
+    >
+      <h1
+        className="sc-gsTCUz jrfRmK"
+      >
+        4.94 (161 reviews)
+      </h1>
+    </div>
+    <div
+      className="sc-bdfBwQ faNODT"
+    >
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Cleanliness
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********5.0
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Accuracy
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********4.5
+      </div>
+    </div>
+    <div
+      className="sc-bdfBwQ faNODT"
+    >
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Communication
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********4.8
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Location
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********4.9
+      </div>
+    </div>
+    <div
+      className="sc-bdfBwQ faNODT"
+    >
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Check-in
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********4.6
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        Value
+      </div>
+      <div
+        className="sc-dlfnbm iLQnHU"
+      >
+        **********5.0
+      </div>
+    </div>
+  </div>
+  <ul
+    className="sc-iBPRYJ hRnkiD"
+  />
+  <button
+    className="sc-pFZIQ iNoUAp"
+    onClick={[Function]}
+  >
+    Show all Reviews
+  </button>
+</div>
+`;

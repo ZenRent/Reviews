@@ -1,13 +1,21 @@
 const faker = require('faker');
 const DateGenerator = require('random-date-generator');
 const { Review } = require('./index.js');
+const moment = require('moment');
 
 function randomDate(start, end) {
   const date = new Date(+start + Math.random() * (end - start));
   return date;
 }
+
 const startDate = new Date(2019, 2, 2);
 const endDate = new Date(2021, 1, 10);
+
+const randomTime = (startDate, endDate) => {
+  const unfilteredTime = DateGenerator.getRandomDateInRange(startDate, endDate);
+  return moment(unfilteredTime).format('MMMM YYYY');
+};
+
 console.log(DateGenerator.getRandomDateInRange(startDate, endDate));
 
 console.log('randomDate', randomDate(startDate, endDate));
@@ -26,7 +34,8 @@ for (let i = 0; i < 40; i += 1) {
   const reviewObj = [{
     Image: faker.image.image(),
     Username: faker.internet.userName(),
-    DateTime: DateGenerator.getRandomDateInRange(startDate, endDate),
+    DateTime: randomTime(startDate, endDate),
+    Time: DateGenerator.getRandomDateInRange(startDate, endDate),
     Body: faker.lorem.paragraph(),
   }];
 

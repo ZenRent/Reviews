@@ -2,37 +2,94 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ReviewContainer = styled.div`
-margin: 20px;
-padding: 2px;
+display: flex;
+margin: 40px 20px 3px 20px;
+margin-left: 28%;
+margin-right: 28%;
+padding: 4px;
+font-size: 13px;
+color: #222222;
+grid-gap: 5px;
+width: 470px;
+letter-spacing: .75px;
+width: 50%;
 `;
 
-const Paragraph = styled.p`
-text-align: left;
+const VerticalContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+`;
+
+const Main = styled.div`
+display: flex;
+margin: 3px 20px 3px 20px;
+margin-left: 28%;
+margin-right: 28%;
+padding: 4px;
+font-size: 13px;
+color: #222222;
+grid-gap: 10px;
+width: 370px;
+letter-spacing: .75px;
 `;
 
 const Img = styled.img`
 height: 50px;
 width: 50px;
 border-radius: 50%;
+justify-content: flex-start;
+${'' /* width: ${(props) => props.size / 12 * 100}vw; */}
+`;
+
+const Paragraph = styled.p`
+text-align: left;
+justify-content: flex-start;
+line-height: 1.5;
+`;
+
+const User = styled.div`
+font-weight: 900;
+color: black;
+font-size: 12.3px;
+
+`;
+const Date = styled.div`
+font-weight: lighter;
+font-size: 12px;
+`;
+
+const HighLight = styled.p`
+color: yellow;
 `;
 
 const ReviewEntry = (props) => {
 
-  console.log("props.review.Reviews.body", props.review.Reviews)
+  // console.log("props.review.Reviews.body", props.review.Reviews)
   // let obj = props.review.Reviews;
   // let Review = obj.pop();
   // console.log(Review.Body)
 
-  console.log("props.review.Reviews[0].Body", props.review.Reviews[0].Body)
-  const { Body, Username, DateTime, Image } = props.review.Reviews[0];
-  console.log("Username", Image);
+  // console.log("props.review.Reviews[0].Body", props.review.Reviews[0].Body)
+  let { Body, Username, DateTime, Image } = props.review.Reviews[0];
+  console.log("props.targetString", props.targetString)
 
-  return (<ReviewContainer>
-    <div>{Username}</div>
-    <div>{DateTime}</div>
-    <Paragraph>{Body}</Paragraph>
-    <Img src={Image}></Img>
-  </ReviewContainer>);
+  // console.log("DateTime", DateTime);
+  // if (props.targetString){
+  //   return (<Paragraph>{Body.replace(props.targetString, props.targetString)}</Paragraph>)
+  // }
+
+
+  return (<div><ReviewContainer>
+    <Img src={Image} ></Img>
+    <VerticalContainer>
+      <User>{Username}</User>
+      <Date>{DateTime}</Date>
+    </VerticalContainer>
+  </ReviewContainer>
+    <Main>
+      <Paragraph>{Body}</Paragraph>
+    </Main></div>);
 };
 
 export default ReviewEntry;
