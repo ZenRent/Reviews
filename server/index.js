@@ -7,7 +7,7 @@ const path = require('path');
 const ReviewController = require('./controllers/Controller.js');
 
 const app = express();
-const port = 1000;
+const port = 3003;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
