@@ -45,6 +45,7 @@ position: absolute;
 `;
 
 const ModalBody = styled.div`
+margin-top:3%;
 width: 788px;
 height: 100%;
 ${'' /* allow modal to accomodate all of content at present view */}

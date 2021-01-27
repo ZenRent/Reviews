@@ -25,6 +25,7 @@ font-weight: bold;
 font-size:23px;
 margin-left: 5px;
 
+
 `;
 
 const ModalReviewStar = styled.img`

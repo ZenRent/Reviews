@@ -39,7 +39,7 @@ display: flex;
 flex-direction: column;
 justify-content: flex-start;
 margin-left: 3%;
-margin-top: 12%;
+margin-top: 10%;
 
 `;
 
