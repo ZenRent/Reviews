@@ -4,6 +4,7 @@ import ReviewEntry from './ReviewEntry.jsx';
 
 const ReviewLayout = styled.ul`
 ${'' /* columns: 2 auto; */}
+justify-content: space-between;
 display: flex;
 flex-wrap: wrap;
 grid-gap: 2px;

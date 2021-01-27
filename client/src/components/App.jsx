@@ -9,7 +9,7 @@ import GlobalStyle from '../GlobalStyles.jsx';
 
 const ModalBtn = styled.button`
 display: flex;
-margin-left: -22%;
+margin-left: -24%;
 margin-right: 1%;
 margin-bottom: 25px;
 border: 1px solid;
@@ -30,30 +30,21 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-${'' /* TEMPORARY FIX FOR OFFCENTER APP!!! */}
 margin-right: 14%;
-
-
   }
 `;
-
-// const DataDisplay = styled.component`
-// justify-content: flex-start;
-
-//   }
-// `;
 
 const TopBorder = styled.div`
 border-top: solid #CDCDCD 2px;
 margin-left: 25%;
-margin-right: 30%;
+margin-right: 28%;
   }
 `;
 
 const BottomBorder = styled.div`
 border-bottom: solid #CDCDCD 2px;
 margin-left: 25%;
-margin-right: 30%;
+margin-right: 28%;
   }
 `;
 
@@ -87,12 +78,20 @@ class App extends React.Component {
   getReviews() {
     axios.get('/reviews')
       .then((response) => {
+        const listings = [];
+
         const targetReviews = [];
         response.data.forEach((current) => {
-          if (current.Listing === '662 Stacey Union') {
+          // console.log("current.Listing", current.Listing)
+          if (current.Listing) {
+            listings.push(current.Listing)
+            console.log('listings[0]', listings[0])
+          }
+          if (current.Listing === listings[0]){
             targetReviews.push(current);
           }
         });
+
         this.setState({ reviews: targetReviews });
         this.setState({ NumOfReviews: targetReviews.length });
         this.getRatingsData(targetReviews);

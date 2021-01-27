@@ -4,6 +4,8 @@ import { MagnifyingGlass } from '@styled-icons/open-iconic/MagnifyingGlass';
 
 const FormContainer = styled.form`
 display: inline;
+
+
 `;
 
 const SearchForm = styled.input`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ReviewContainer = styled.div`
 display: flex;
-margin: 40px 20px 3px 20px;
+margin: 20px 20px 3px 20px;
 margin-left: 28%;
 margin-right: 28%;
 padding: 4px;
