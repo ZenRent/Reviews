@@ -33,7 +33,6 @@ const ReviewList = (props) => {
       })
     }</ModalReviewLayout>);
   }
-  console.log('props.reviews', props.reviews);
   return (
     <ReviewLayout>{
       props.reviews.map((review, index) => {

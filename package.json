@@ -12,7 +12,7 @@
     "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test -- --watch"
   },
-  "author": "Beth Johnson",
+  "author": "Doug Perez",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.10",

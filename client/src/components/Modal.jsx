@@ -22,7 +22,7 @@ const StickyHeader = styled.div`
     height: 10%;
     position: fixed;
     background-color:white;
-    z-index: 100;
+    z-index: 30;
 `;
 
 const ModalObj = styled.div`
@@ -35,10 +35,10 @@ width: 780px;
 height: 90%;
 border: 1px solid gray;
 padding: 8px;
-background-color: white;
+background-color: rgb(255, 255, 255);
 border-radius: 15px;
 position: absolute;
-  top: 50%;
+  top: 120%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
