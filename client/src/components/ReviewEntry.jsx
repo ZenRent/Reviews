@@ -64,21 +64,7 @@ color: yellow;
 `;
 
 const ReviewEntry = (props) => {
-
-  // console.log("props.review.Reviews.body", props.review.Reviews)
-  // let obj = props.review.Reviews;
-  // let Review = obj.pop();
-  // console.log(Review.Body)
-
-  // console.log("props.review.Reviews[0].Body", props.review.Reviews[0].Body)
   let { Body, Username, DateTime, Image } = props.review.Reviews[0];
-  console.log("props.targetString", props.targetString)
-
-  // console.log("DateTime", DateTime);
-  // if (props.targetString){
-  //   return (<Paragraph>{Body.replace(props.targetString, props.targetString)}</Paragraph>)
-  // }
-
 
   return (<div><ReviewContainer>
     <Img src={Image} ></Img>

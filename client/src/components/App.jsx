@@ -9,7 +9,7 @@ import GlobalStyle from '../GlobalStyles.jsx';
 
 const ModalBtn = styled.button`
 display: flex;
-margin-left: -24%;
+margin-left: -22%;
 margin-right: 1%;
 margin-bottom: 25px;
 border: 1px solid;
@@ -30,6 +30,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+margin-top: 650px;
 margin-right: 14%;
   }
 `;
@@ -82,10 +83,8 @@ class App extends React.Component {
 
         const targetReviews = [];
         response.data.forEach((current) => {
-          // console.log("current.Listing", current.Listing)
           if (current.Listing) {
             listings.push(current.Listing)
-            console.log('listings[0]', listings[0])
           }
           if (current.Listing === listings[0]){
             targetReviews.push(current);
@@ -133,17 +132,6 @@ class App extends React.Component {
     const Sum = Integers.reduce((t, n) => t + n) / 6;
     const Score = Number.parseFloat(Sum).toFixed(2);
     this.setState({ TotalScore: Score });
-
-    // console.log('AccuracyAvg', AccuracyAvg),
-    //   console.log('CleanlinessAvg', CleanlinessAvg),
-    //   console.log('CommunicationAvg', CommunicationAvg),
-    //   console.log('LocationAvg', LocationAvg),
-    //   console.log('CheckinAvg', CheckinAvg),
-    //   console.log('ValueAvg', ValueAvg)
-    // console.log("RatingsArray", RatingsArray)
-    // Accuracy.reduce((accum, current) => {
-    //   console.log("total", accum + current)
-    // })
   }
 
   closeModal() {

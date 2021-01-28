@@ -38,14 +38,14 @@ const DisplayHeader = (props) => {
   if (props.view === 'Modal') {
     return (
       <ModalHeading>
-        <ModalReviewStar src="red-star.png" />
+        <ModalReviewStar src="https://zenrent.s3-us-west-1.amazonaws.com/red-star.png" />
         {props.TotalScore} ({props.NumOfReviews} reviews)
       </ModalHeading>
     );
   } else {
     return (
       <Heading>
-        <ReviewStar src="red-star.png" />
+        <ReviewStar src="https://zenrent.s3-us-west-1.amazonaws.com/red-star.png" />
         {props.TotalScore} ({props.NumOfReviews} reviews)
       </Heading>
     )

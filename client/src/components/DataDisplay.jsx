@@ -121,7 +121,6 @@ position: relative;
   };
 transition: width .3s linear;
 `;
-  console.log(window.innerWidth)
   if (props.view === 'Modal' || window.innerWidth <= 954) {
     return (
       <ModalContainer>
