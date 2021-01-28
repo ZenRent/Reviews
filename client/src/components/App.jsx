@@ -9,7 +9,7 @@ import GlobalStyle from '../GlobalStyles.jsx';
 
 const ModalBtn = styled.button`
 display: flex;
-margin-left: -24%;
+margin-left: -22%;
 margin-right: 1%;
 margin-bottom: 25px;
 border: 1px solid;
@@ -30,7 +30,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-margin-top: 36%;
+margin-top: 650px;
 margin-right: 14%;
   }
 `;
