@@ -1,16 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Body1 = styled.div`
+${'' /* width: 500px; */}
+`;
+
 const ReviewContainer = styled.div`
 display: flex;
-margin: 20px 20px 3px 20px;
+margin: 10px 10px 3px 20px;
 margin-left: 28%;
 margin-right: 28%;
-padding: 4px;
+padding: 3px;
 font-size: 13px;
 color: #222222;
-grid-gap: 5px;
-width: 470px;
+grid-gap: 6px;
 letter-spacing: .75px;
 width: 50%;
 `;
@@ -45,6 +48,7 @@ ${'' /* width: ${(props) => props.size / 12 * 100}vw; */}
 const Paragraph = styled.p`
 text-align: left;
 justify-content: flex-start;
+margin-right:-10%;
 line-height: 1.5;
 `;
 
@@ -66,7 +70,7 @@ color: yellow;
 const ReviewEntry = (props) => {
   let { Body, Username, DateTime, Image } = props.review.Reviews[0];
 
-  return (<div><ReviewContainer>
+  return (<Body1><ReviewContainer>
     <Img src={Image} ></Img>
     <VerticalContainer>
       <User>{Username}</User>
@@ -75,7 +79,7 @@ const ReviewEntry = (props) => {
   </ReviewContainer>
     <Main>
       <Paragraph>{Body}</Paragraph>
-    </Main></div>);
+    </Main></Body1>);
 };
 
 export default ReviewEntry;

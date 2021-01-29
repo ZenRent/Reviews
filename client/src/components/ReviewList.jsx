@@ -4,15 +4,17 @@ import ReviewEntry from './ReviewEntry.jsx';
 
 const ReviewLayout = styled.ul`
 ${'' /* columns: 2 auto; */}
-justify-content: space-between;
+justify-content: space-evenly;
 display: flex;
 flex-wrap: wrap;
-grid-gap: 2px;
+grid-gap: 3px;
 ${'' /* margin-left: 375px; */}
 ${'' /* margin-left: 22%;
 margin-right: 22%; */}
-max-width: 800px;
-flex-basis: 400px;
+max-width: 1000px;
+flex-basis: 500px;
+margin-left:5%;
+margin-right:7%
 `;
 
 const ModalReviewLayout = styled.ul`
