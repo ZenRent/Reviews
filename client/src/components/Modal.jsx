@@ -38,7 +38,7 @@ padding: 8px;
 background-color: rgb(255, 255, 255);
 border-radius: 15px;
 position: absolute;
-  top: 100%;
+  top: calc(50% + ${(props) => (props.PageTop)}px);
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
@@ -102,6 +102,7 @@ class Modal extends React.Component {
     super(props);
     this.state = {
       TargetString: '',
+      PageTop: window.scrollY,
     };
     this.filterSearch = this.filterSearch.bind(this);
   }
@@ -116,7 +117,7 @@ class Modal extends React.Component {
         <ModalBackDrop onClick={() => this.props.closeModal()} >
         </ModalBackDrop>
 
-        <ModalObj>
+        <ModalObj PageTop={this.state.PageTop}>
           {/* <ModalHeader view={this.props.view} closeModal={this.props.closeModal} /> */}
           <StickyHeader>
             <XCloseBtn onClick={() => this.props.closeModal()}>X</XCloseBtn>

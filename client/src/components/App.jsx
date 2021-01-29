@@ -39,8 +39,8 @@ justify-content: center;
 
 const TopBorder = styled.div`
 border-top: solid #CDCDCD 2px;
-margin-left: 20%;
-margin-right: 23%;
+margin-left: 22%;
+margin-right: 22%;
 margin-top:1%;
   }
 `;
@@ -58,8 +58,8 @@ margin-left: 5%;
 
 const BottomBorder = styled.div`
 border-bottom: solid #CDCDCD 2px;
-margin-left: 20%;
-margin-right: 23%;
+margin-left: 22%;
+margin-right: 22%;
 margin-bottom:1%;
   }
 `;
