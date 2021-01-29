@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import DisplayHeader from './DisplayHeader.jsx';
 
 const Container = styled.div`
-margin-left: 5%;
+margin-left: 1%;
 `;
 
 const Wrapper = styled.div`
@@ -31,7 +31,7 @@ font-size: 13px;
 margin-right: 70px;
 flex-grow: 0;
   flex-shrink: 0;
-  flex-basis: 90px;
+  flex-basis: 160px;
 `;
 
 const ModalContainer = styled.div`
@@ -121,6 +121,7 @@ position: relative;
   };
 transition: width .3s linear;
 `;
+console.log("WINDOW.INNERWIDTH", window.innerWidth)
   if (props.view === 'Modal' || window.innerWidth <= 954) {
     return (
       <ModalContainer>

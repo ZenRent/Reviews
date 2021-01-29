@@ -9,8 +9,8 @@ import GlobalStyle from '../GlobalStyles.jsx';
 
 const ModalBtn = styled.button`
 display: flex;
-margin-left: -22%;
-margin-right: 1%;
+margin-left: -20%;
+margin-right: 20%;
 margin-bottom: 25px;
 border: 1px solid;
 padding: 8px;
@@ -20,32 +20,47 @@ cursor:pointer;
 width: 145px;
 
 
+
 &:hover {
 background-color: #f7f7f7;
   }
 `;
 
-const ProjectContainer = styled.div`
-display: flex;
-flex-direction: column;
+const Body = styled.div`
+
+width:100%;
+flex: row;
 align-items: center;
+margin-top: 80px;
 justify-content: center;
-margin-top: 650px;
-margin-right: 14%;
+
   }
 `;
 
 const TopBorder = styled.div`
 border-top: solid #CDCDCD 2px;
-margin-left: 25%;
-margin-right: 28%;
+margin-left: 20%;
+margin-right: 23%;
+margin-top:1%;
+  }
+`;
+
+const ProjectContainer = styled.div`
+display: flex;
+${'' /* border: 2px black dashed; */}
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin-right: 25%;
+margin-left: 5%;
   }
 `;
 
 const BottomBorder = styled.div`
 border-bottom: solid #CDCDCD 2px;
-margin-left: 25%;
-margin-right: 28%;
+margin-left: 20%;
+margin-right: 23%;
+margin-bottom:1%;
   }
 `;
 
@@ -140,8 +155,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-      <TopBorder />
+      <Body>
+      <TopBorder/>
         <ProjectContainer>
           <GlobalStyle />
           <DataDisplay
@@ -164,7 +179,7 @@ class App extends React.Component {
             /> : null}
         </ProjectContainer>
         <BottomBorder />
-      </div>
+      </Body>
     );
   }
 }

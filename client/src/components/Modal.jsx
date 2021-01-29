@@ -38,10 +38,16 @@ padding: 8px;
 background-color: rgb(255, 255, 255);
 border-radius: 15px;
 position: absolute;
-  top: 120%;
+  top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
+  z-index: 27;
+
+
+
+
+
 `;
 
 const ModalBody = styled.div`
@@ -54,6 +60,7 @@ overflow: hidden;
 ${'' /* max height and overflow allow scrollable */}
 max-height: calc(100vh - 110px);
     overflow-y: auto;
+z-index: 27;
 `;
 
 const ModalBackDrop = styled.div`
@@ -64,6 +71,7 @@ background-color: rgba(32,32,32,0.6);
     left: 0px;
  height: 100%;
  width: 100%;
+ z-index: 25;
 `;
 
 const Row = styled.div`
@@ -109,8 +117,6 @@ class Modal extends React.Component {
         </ModalBackDrop>
 
         <ModalObj>
-
-
           {/* <ModalHeader view={this.props.view} closeModal={this.props.closeModal} /> */}
           <StickyHeader>
             <XCloseBtn onClick={() => this.props.closeModal()}>X</XCloseBtn>
@@ -127,6 +133,7 @@ class Modal extends React.Component {
             </Row>
           </ModalBody>
         </ModalObj>
+
       </div>
     );
   }
